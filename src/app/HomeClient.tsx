@@ -497,7 +497,7 @@ function BrowserGraveyard() {
 function ChaosSlotMachine() {
   const [isSpinning, setIsSpinning] = useState(false);
   const [hasSpun, setHasSpun] = useState(false);
-  const [reelResults, setReelResults] = useState([0, 0, 0]);
+  const [reelResults, setReelResults] = useState<[number, number, number]>([0, 0, 0]);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
@@ -524,7 +524,7 @@ function ChaosSlotMachine() {
     setIsSpinning(true);
 
     // Generate random results with staggered timing
-    const newResults = [
+    const newResults: [number, number, number] = [
       Math.floor(Math.random() * chaosItems.length),
       Math.floor(Math.random() * chaosItems.length),
       Math.floor(Math.random() * chaosItems.length),
@@ -574,8 +574,9 @@ function ChaosSlotMachine() {
 
           {/* Reels Container */}
           <div className="flex justify-center gap-4 md:gap-6 mb-8">
-            {[0, 1, 2].map((reelIndex) => {
+            {([0, 1, 2] as const).map((reelIndex) => {
               const item = chaosItems[reelResults[reelIndex]];
+              if (!item) return null;
               const colors = getColorClasses(item.color);
               const IconComponent = item.icon;
 
