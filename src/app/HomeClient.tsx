@@ -295,7 +295,7 @@ function BrowserGraveyard() {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-900/50 to-transparent pointer-events-none" />
 
       {/* Browser windows grid */}
-      <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-6 max-w-5xl mx-auto">
         {browserFailures.map((browser, index) => {
           const isDead = deadBrowsers.includes(index);
           const IconComponent = browser.icon;
@@ -310,7 +310,7 @@ function BrowserGraveyard() {
                 rotateX: 0,
               } : {}}
               transition={{ delay: index * 0.15, duration: 0.5 }}
-              className="perspective-1000 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+              className="perspective-1000 w-[calc(50%-6px)] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
             >
               <motion.div
                 className="relative"
@@ -327,13 +327,13 @@ function BrowserGraveyard() {
                     : "border-white/10"
                 }`}>
                   {/* Browser chrome/header */}
-                  <div className={`px-4 py-3 flex items-center gap-2 transition-colors duration-500 ${
+                  <div className={`px-2 sm:px-4 py-2 sm:py-3 flex items-center gap-1 sm:gap-2 transition-colors duration-500 ${
                     isDead ? "bg-red-950/50" : "bg-[#2d2d2d]"
                   }`}>
-                    <div className={`w-3 h-3 rounded-full transition-colors duration-500 ${isDead ? "bg-red-500" : "bg-[#ff5f56]"}`} />
-                    <div className={`w-3 h-3 rounded-full transition-colors duration-500 ${isDead ? "bg-red-500/50" : "bg-[#ffbd2e]"}`} />
-                    <div className={`w-3 h-3 rounded-full transition-colors duration-500 ${isDead ? "bg-red-500/30" : "bg-[#27ca40]"}`} />
-                    <div className={`ml-3 flex-1 rounded px-3 py-1 text-xs font-mono truncate transition-colors duration-500 ${
+                    <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-500 ${isDead ? "bg-red-500" : "bg-[#ff5f56]"}`} />
+                    <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-500 ${isDead ? "bg-red-500/50" : "bg-[#ffbd2e]"}`} />
+                    <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-500 ${isDead ? "bg-red-500/30" : "bg-[#27ca40]"}`} />
+                    <div className={`ml-1 sm:ml-3 flex-1 rounded px-1.5 sm:px-3 py-0.5 sm:py-1 text-[9px] sm:text-xs font-mono truncate transition-colors duration-500 ${
                       isDead ? "bg-red-950/50 text-red-400/60" : "bg-[#1a1a1a] text-white/40"
                     }`}>
                       {browser.url}
@@ -341,7 +341,7 @@ function BrowserGraveyard() {
                   </div>
 
                   {/* Browser content */}
-                  <div className={`relative p-6 min-h-[140px] flex flex-col items-center justify-center transition-colors duration-500 ${
+                  <div className={`relative p-3 sm:p-6 min-h-[100px] sm:min-h-[140px] flex flex-col items-center justify-center transition-colors duration-500 ${
                     isDead ? "bg-[#1a0a0a]" : "bg-[#1a1a22]"
                   }`}>
                     {/* Crack overlay when dead */}
@@ -409,19 +409,19 @@ function BrowserGraveyard() {
 
                     {/* Icon */}
                     <motion.div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-colors duration-500 ${
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 transition-colors duration-500 ${
                         isDead ? "bg-red-500/20" : "bg-white/5"
                       }`}
                       animate={isDead ? { scale: [1, 0.9, 1], rotate: [0, -5, 5, 0] } : {}}
                       transition={{ duration: 0.3 }}
                     >
-                      <IconComponent className={`w-6 h-6 transition-colors duration-500 ${
+                      <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors duration-500 ${
                         isDead ? "text-red-400" : "text-white/40"
                       }`} />
                     </motion.div>
 
                     {/* Title */}
-                    <p className={`text-sm font-semibold mb-1 transition-colors duration-500 ${
+                    <p className={`text-xs sm:text-sm font-semibold mb-1 transition-colors duration-500 ${
                       isDead ? "text-red-300" : "text-white/60"
                     }`}>
                       {browser.title}
@@ -434,15 +434,15 @@ function BrowserGraveyard() {
                           key="dead"
                           initial={{ opacity: 0, y: 5 }}
                           animate={{ opacity: 1, y: 0 }}
-                          className="flex items-center gap-2"
+                          className="flex items-center gap-1 sm:gap-2"
                         >
-                          <XCircle className="w-4 h-4 text-red-500" />
-                          <p className="text-xs text-red-400 font-medium">{browser.issue}</p>
+                          <XCircle className="w-3 h-3 sm:w-4 sm:h-4 text-red-500" />
+                          <p className="text-[10px] sm:text-xs text-red-400 font-medium">{browser.issue}</p>
                         </motion.div>
                       ) : (
                         <motion.p
                           key="alive"
-                          className="text-xs text-white/30"
+                          className="text-[10px] sm:text-xs text-white/30"
                         >
                           Loading...
                         </motion.p>
@@ -559,7 +559,7 @@ function ChaosSlotMachine() {
       {/* Slot Machine Container */}
       <div className="relative max-w-4xl mx-auto">
         {/* Machine Frame */}
-        <div className="relative rounded-3xl border-2 border-white/10 bg-gradient-to-b from-[#1a1a22] to-[#0f0f14] p-8 md:p-12 overflow-hidden">
+        <div className="relative rounded-2xl sm:rounded-3xl border-2 border-white/10 bg-gradient-to-b from-[#1a1a22] to-[#0f0f14] p-4 sm:p-8 md:p-12 overflow-hidden">
           {/* Decorative lights */}
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 opacity-50" />
           <div className="absolute -top-1 left-1/4 w-2 h-2 rounded-full bg-red-500 animate-pulse" />
@@ -567,13 +567,13 @@ function ChaosSlotMachine() {
           <div className="absolute -top-1 left-3/4 w-2 h-2 rounded-full bg-red-500 animate-pulse" style={{ animationDelay: "0.6s" }} />
 
           {/* Title inside machine */}
-          <div className="text-center mb-8">
-            <p className="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-2">Daily Business</p>
-            <h3 className="text-2xl md:text-3xl font-bold text-white">CHAOS ROULETTE</h3>
+          <div className="text-center mb-4 sm:mb-8">
+            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-neutral-500 mb-1 sm:mb-2">Daily Business</p>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">CHAOS ROULETTE</h3>
           </div>
 
           {/* Reels Container */}
-          <div className="flex justify-center gap-4 md:gap-6 mb-8">
+          <div className="flex justify-center gap-2 sm:gap-4 md:gap-6 mb-4 sm:mb-8">
             {([0, 1, 2] as const).map((reelIndex) => {
               const item = chaosItems[reelResults[reelIndex]];
               if (!item) return null;
@@ -590,7 +590,7 @@ function ChaosSlotMachine() {
 
                   {/* Reel content */}
                   <motion.div
-                    className={`relative w-24 md:w-32 h-32 md:h-40 rounded-xl border-2 ${colors.border} ${colors.bg} flex flex-col items-center justify-center p-4 overflow-hidden`}
+                    className={`relative w-20 sm:w-24 md:w-32 h-28 sm:h-32 md:h-40 rounded-lg sm:rounded-xl border-2 ${colors.border} ${colors.bg} flex flex-col items-center justify-center p-2 sm:p-4 overflow-hidden`}
                     animate={isSpinning ? {
                       y: [0, -20, 0, 20, 0, -10, 0, 10, 0],
                     } : {}}
@@ -611,16 +611,16 @@ function ChaosSlotMachine() {
 
                     {/* Icon */}
                     <motion.div
-                      className={`w-12 h-12 md:w-14 md:h-14 rounded-xl ${colors.bg} flex items-center justify-center mb-2 shadow-lg ${colors.glow}`}
+                      className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl ${colors.bg} flex items-center justify-center mb-1 sm:mb-2 shadow-lg ${colors.glow}`}
                       animate={!isSpinning && hasSpun ? { scale: [1, 1.1, 1] } : {}}
                       transition={{ duration: 0.3, delay: reelIndex * 0.2 + 0.3 }}
                     >
-                      <IconComponent className={`w-6 h-6 md:w-7 md:h-7 ${colors.text}`} />
+                      <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 ${colors.text}`} />
                     </motion.div>
 
                     {/* Label */}
                     <motion.p
-                      className="text-xs md:text-sm font-bold text-white text-center"
+                      className="text-[10px] sm:text-xs md:text-sm font-bold text-white text-center leading-tight"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: isSpinning ? 0.3 : 1 }}
                     >
@@ -629,7 +629,7 @@ function ChaosSlotMachine() {
 
                     {/* Stat */}
                     <motion.p
-                      className={`text-[10px] md:text-xs ${colors.text} text-center mt-1 font-semibold`}
+                      className={`text-[9px] sm:text-[10px] md:text-xs ${colors.text} text-center mt-0.5 sm:mt-1 font-semibold`}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: isSpinning ? 0 : 1 }}
                       transition={{ delay: 0.5 }}
@@ -647,7 +647,7 @@ function ChaosSlotMachine() {
             <motion.button
               onClick={handleSpin}
               disabled={isSpinning}
-              className={`relative px-8 py-4 rounded-full font-bold text-lg transition-all ${
+              className={`relative px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-lg transition-all ${
                 isSpinning
                   ? "bg-neutral-700 text-neutral-400 cursor-not-allowed"
                   : "bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-400 hover:to-red-500 shadow-lg shadow-red-500/30"
@@ -678,10 +678,10 @@ function ChaosSlotMachine() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className="mt-6 text-center"
+                className="mt-4 sm:mt-6 text-center px-2"
               >
-                <p className="text-neutral-400 text-sm mb-2">Sound familiar? This happens every day without systems.</p>
-                <p className="text-red-400 font-semibold">Spin again to see more problems you&apos;re facing.</p>
+                <p className="text-neutral-400 text-xs sm:text-sm mb-2">Sound familiar? This happens every day without systems.</p>
+                <p className="text-red-400 font-semibold text-sm sm:text-base">Spin again to see more problems you&apos;re facing.</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -841,14 +841,14 @@ export function OneAppPageContent() {
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/[0.08] backdrop-blur-xl border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 sm:py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/oneapp-logo.png"
               alt="OneApp Logo"
               width={280}
               height={70}
-              className="h-14 md:h-16 w-auto"
+              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto"
               priority
             />
           </Link>
@@ -910,13 +910,13 @@ export function OneAppPageContent() {
       </nav>
 
       {/* Hero Section - Minimal Centered Design */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-28 pb-16 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden">
         {/* Subtle radial gradient background */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(168,85,247,0.15),transparent)] pointer-events-none" />
 
         <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           {/* Headline with Cinematic Text Reveal */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-6 text-white">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-tight leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-6 text-white">
             <TextReveal delay={0.1} staggerDelay={0.12}>
               Automate More.
             </TextReveal>
@@ -931,7 +931,7 @@ export function OneAppPageContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-neutral-400 mb-10 max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-neutral-400 mb-8 sm:mb-10 max-w-2xl mx-auto px-2"
           >
             We replace scattered tools with one connected system. <span className="text-purple-400">Powered by OneApp AI.</span>
           </motion.p>
@@ -944,7 +944,7 @@ export function OneAppPageContent() {
           >
             <MagneticButton
               href="#cta"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[#121218] font-semibold text-base hover:bg-neutral-200 transition-colors"
+              className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white text-[#121218] font-semibold text-sm sm:text-base hover:bg-neutral-200 transition-colors"
               strength={0.4}
             >
               Get Started Now
@@ -958,7 +958,7 @@ export function OneAppPageContent() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative z-10 w-full max-w-6xl mx-auto mt-16 px-4"
+          className="relative z-10 w-full max-w-6xl mx-auto mt-10 sm:mt-16 px-2 sm:px-4"
         >
           <LeadsDashboard dashboardUrl="oneapp.today" />
         </motion.div>
@@ -1653,22 +1653,22 @@ export function OneAppPageContent() {
       </section>
 
       {/* CTA Section */}
-      <section id="cta" className="py-32 px-6 md:px-8 relative overflow-hidden">
+      <section id="cta" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-purple-500/5 pointer-events-none" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div {...fadeInUp}>
-            <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 tracking-tight leading-tight">
               Let&apos;s Fix the <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Engine</span>
             </h2>
-            <p className="text-2xl text-neutral-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-400 mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed px-2">
               Book a walkthrough. See exactly where your business is leaking revenue and how we can plug the holes.
             </p>
 
             <MagneticButton
               href="/#contact"
-              className="group inline-flex items-center gap-4 px-12 py-6 rounded-full font-bold text-white text-2xl transition-colors"
+              className="group inline-flex items-center gap-2 sm:gap-4 px-6 sm:px-8 md:px-12 py-4 sm:py-5 md:py-6 rounded-full font-bold text-white text-base sm:text-lg md:text-xl lg:text-2xl transition-colors"
               style={{
                 background: 'linear-gradient(135deg, #a855f7 0%, #c084fc 100%)',
                 boxShadow: '0 20px 50px rgba(168, 85, 247, 0.4)'
@@ -1676,25 +1676,25 @@ export function OneAppPageContent() {
               strength={0.25}
             >
               Get Your Walkthrough
-              <ArrowRight className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 group-hover:translate-x-1 transition-transform" />
             </MagneticButton>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 md:px-8 border-t border-white/5 bg-black/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+      <footer className="py-8 sm:py-12 px-4 sm:px-6 md:px-8 border-t border-white/5 bg-black/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-8">
           <Link href="/" className="transition-opacity hover:opacity-80">
             <Image
               src="/oneapp-logo.png"
               alt="OneApp Logo"
               width={200}
               height={50}
-              className="h-10 md:h-12 w-auto"
+              className="h-8 sm:h-10 md:h-12 w-auto"
             />
           </Link>
-          <p className="text-neutral-500 text-sm font-medium">
+          <p className="text-neutral-500 text-xs sm:text-sm font-medium text-center">
             © {new Date().getFullYear()} OneApp. Precision-engineered growth.
           </p>
         </div>

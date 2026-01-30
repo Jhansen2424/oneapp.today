@@ -17,20 +17,20 @@ export function LeadsDashboard({ dashboardUrl = "dashboard.webaholics.com" }: { 
 
   return (
     <div className="relative w-full">
-      {/* Floating Lead Converted notification */}
+      {/* Floating Lead Converted notification - hidden on mobile */}
       <motion.div
         initial={{ opacity: 0, x: 20, y: -10 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ duration: 0.6, delay: 1.2 }}
-        className="absolute -top-3 right-8 z-30 rounded-xl border border-brand-500/40 shadow-2xl shadow-brand-500/20 bg-[#0d0d14]/95 backdrop-blur-xl px-4 py-2.5"
+        className="hidden sm:block absolute -top-3 right-4 sm:right-8 z-30 rounded-xl border border-brand-500/40 shadow-2xl shadow-brand-500/20 bg-[#0d0d14]/95 backdrop-blur-xl px-3 sm:px-4 py-2 sm:py-2.5"
       >
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-brand-500/20 flex items-center justify-center">
-            <CheckCircle2 className="w-4 h-4 text-brand-400" />
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-brand-500/20 flex items-center justify-center">
+            <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-400" />
           </div>
           <div>
-            <p className="text-sm font-semibold text-white">Lead Converted</p>
-            <p className="text-xs text-brand-400">$4,500 deal</p>
+            <p className="text-xs sm:text-sm font-semibold text-white">Lead Converted</p>
+            <p className="text-[10px] sm:text-xs text-brand-400">$4,500 deal</p>
           </div>
         </div>
       </motion.div>
@@ -55,10 +55,10 @@ export function LeadsDashboard({ dashboardUrl = "dashboard.webaholics.com" }: { 
           </div>
         </div>
 
-        {/* Dashboard Content - Horizontal Layout */}
-        <div className="p-5">
+        {/* Dashboard Content - Responsive Layout */}
+        <div className="p-3 sm:p-5">
           {/* Top Row: Stats */}
-          <div className="grid grid-cols-4 gap-4 mb-5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-5">
             {[
               { label: "Leads Today", value: "24", change: "+8", positive: true },
               { label: "Response Time", value: "< 2m", change: "-45%", positive: true },
@@ -70,12 +70,12 @@ export function LeadsDashboard({ dashboardUrl = "dashboard.webaholics.com" }: { 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + i * 0.1 }}
-                className="p-3 rounded-lg bg-white/[0.03] border border-white/5"
+                className="p-2 sm:p-3 rounded-lg bg-white/[0.03] border border-white/5"
               >
-                <div className="text-[10px] text-neutral-500 uppercase tracking-wider mb-1">{stat.label}</div>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-lg font-bold text-white">{stat.value}</span>
-                  <span className={`text-xs font-medium ${stat.positive ? 'text-emerald-400' : 'text-red-400'}`}>
+                <div className="text-[9px] sm:text-[10px] text-neutral-500 uppercase tracking-wider mb-1">{stat.label}</div>
+                <div className="flex items-baseline gap-1 sm:gap-2">
+                  <span className="text-base sm:text-lg font-bold text-white">{stat.value}</span>
+                  <span className={`text-[10px] sm:text-xs font-medium ${stat.positive ? 'text-emerald-400' : 'text-red-400'}`}>
                     {stat.change}
                   </span>
                 </div>
@@ -83,56 +83,56 @@ export function LeadsDashboard({ dashboardUrl = "dashboard.webaholics.com" }: { 
             ))}
           </div>
 
-          {/* Bottom Row: Chart + Pipeline + Activity (horizontal) */}
-          <div className="grid grid-cols-12 gap-4">
-            {/* Leads Chart - spans 5 cols */}
+          {/* Bottom Row: Chart + Pipeline + Activity - stacks on mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-4">
+            {/* Leads Chart */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="col-span-5 p-4 rounded-lg bg-white/[0.02] border border-white/5"
+              className="sm:col-span-1 lg:col-span-5 p-3 sm:p-4 rounded-lg bg-white/[0.02] border border-white/5"
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-emerald-400" />
-                  <span className="text-sm font-medium text-white">Leads This Week</span>
+                  <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
+                  <span className="text-xs sm:text-sm font-medium text-white">Leads This Week</span>
                 </div>
-                <span className="text-xs text-emerald-400 font-medium">+47%</span>
+                <span className="text-[10px] sm:text-xs text-emerald-400 font-medium">+47%</span>
               </div>
 
               {/* Chart */}
-              <div className="flex items-end justify-between gap-2" style={{ height: 80 }}>
+              <div className="flex items-end justify-between gap-1 sm:gap-2" style={{ height: 60 }}>
                 {chartData.map((data, i) => (
                   <div key={i} className="flex-1 flex flex-col items-center justify-end h-full">
                     <motion.div
                       initial={{ height: 0 }}
-                      animate={{ height: `${data.height * 0.8}px` }}
+                      animate={{ height: `${data.height * 0.6}px` }}
                       transition={{ duration: 0.8, delay: 0.9 + i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
                       className="w-full rounded-t bg-gradient-to-t from-emerald-600 to-emerald-400 relative group cursor-pointer"
                     >
-                      <div className="absolute -top-6 left-1/2 -translate-x-1/2 px-1.5 py-0.5 bg-white text-black text-[9px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 pointer-events-none">
+                      <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-1 py-0.5 bg-white text-black text-[8px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 pointer-events-none">
                         {data.leads}
                       </div>
                     </motion.div>
-                    <span className="text-[9px] text-neutral-500 mt-1.5">{data.day}</span>
+                    <span className="text-[8px] sm:text-[9px] text-neutral-500 mt-1">{data.day}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Pipeline Value - spans 3 cols */}
+            {/* Pipeline Value */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
-              className="col-span-3 p-4 rounded-lg bg-white/[0.02] border border-white/5"
+              className="sm:col-span-1 lg:col-span-3 p-3 sm:p-4 rounded-lg bg-white/[0.02] border border-white/5"
             >
-              <div className="flex items-center gap-2 mb-3">
-                <DollarSign className="w-4 h-4 text-brand-400" />
-                <span className="text-sm font-medium text-white">Pipeline</span>
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <DollarSign className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-400" />
+                <span className="text-xs sm:text-sm font-medium text-white">Pipeline</span>
               </div>
-              <div className="text-2xl font-bold text-brand-400 mb-3">$127,400</div>
-              <div className="flex gap-0.5 h-2 rounded-full overflow-hidden bg-white/5">
+              <div className="text-xl sm:text-2xl font-bold text-brand-400 mb-2 sm:mb-3">$127,400</div>
+              <div className="flex gap-0.5 h-1.5 sm:h-2 rounded-full overflow-hidden bg-white/5">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "35%" }}
@@ -158,7 +158,7 @@ export function LeadsDashboard({ dashboardUrl = "dashboard.webaholics.com" }: { 
                   className="bg-amber-500 rounded-r"
                 />
               </div>
-              <div className="flex justify-between mt-2 text-[9px] text-neutral-500">
+              <div className="flex justify-between mt-1.5 sm:mt-2 text-[8px] sm:text-[9px] text-neutral-500">
                 <span>New</span>
                 <span>Qualified</span>
                 <span>Proposal</span>
@@ -166,12 +166,12 @@ export function LeadsDashboard({ dashboardUrl = "dashboard.webaholics.com" }: { 
               </div>
             </motion.div>
 
-            {/* Activity Feed - spans 4 cols */}
+            {/* Activity Feed */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
-              className="col-span-4 space-y-2"
+              className="sm:col-span-2 lg:col-span-4 space-y-1.5 sm:space-y-2"
             >
               {[
                 { icon: Users, text: "New lead from website", time: "2m", color: "brand" },
@@ -183,23 +183,23 @@ export function LeadsDashboard({ dashboardUrl = "dashboard.webaholics.com" }: { 
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.3 + i * 0.1 }}
-                  className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/[0.02] border border-white/5"
+                  className="flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-lg bg-white/[0.02] border border-white/5"
                 >
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center shrink-0 ${
                     activity.color === 'brand' ? 'bg-brand-500/20' :
                     activity.color === 'blue' ? 'bg-blue-500/20' :
                     'bg-violet-500/20'
                   }`}>
-                    <activity.icon className={`w-3.5 h-3.5 ${
+                    <activity.icon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${
                       activity.color === 'brand' ? 'text-brand-400' :
                       activity.color === 'blue' ? 'text-blue-400' :
                       'text-violet-400'
                     }`} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs text-white truncate">{activity.text}</p>
+                    <p className="text-[11px] sm:text-xs text-white truncate">{activity.text}</p>
                   </div>
-                  <span className="text-[10px] text-neutral-500 shrink-0">{activity.time}</span>
+                  <span className="text-[9px] sm:text-[10px] text-neutral-500 shrink-0">{activity.time}</span>
                 </motion.div>
               ))}
             </motion.div>
