@@ -20,7 +20,11 @@ import {
   Menu,
   X,
   DollarSign,
-  XCircle
+  XCircle,
+  Mail,
+  MessageSquare,
+  User,
+  Send
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -857,6 +861,7 @@ export function OneAppPageContent() {
             <a href="#problem" className="text-sm text-neutral-400 hover:text-white transition-colors">The Problem</a>
             <a href="#journey" className="text-sm text-neutral-400 hover:text-white transition-colors">Your Journey</a>
             <a href="#pricing" className="text-sm text-neutral-400 hover:text-white transition-colors">Pricing</a>
+            <a href="#contact" className="text-sm text-neutral-400 hover:text-white transition-colors">Contact</a>
             <MagneticButton
               href="#cta"
               className="px-6 py-2.5 rounded-full text-white font-semibold text-sm transition-colors flex items-center gap-2"
@@ -893,6 +898,7 @@ export function OneAppPageContent() {
                 <a href="#problem" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-neutral-300">The Problem</a>
                 <a href="#journey" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-neutral-300">Your Journey</a>
                 <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-neutral-300">Pricing</a>
+                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-neutral-300">Contact</a>
                 <a
                   href="#cta"
                   onClick={() => setMobileMenuOpen(false)}
@@ -1652,6 +1658,117 @@ export function OneAppPageContent() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section id="contact" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 to-brand-500/5 pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
+
+        <div className="max-w-4xl mx-auto relative z-10">
+          <motion.div {...fadeInUp} className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight">
+              Get in <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Touch</span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed px-2">
+              Ready to transform your business? Fill out the form below and we&apos;ll get back to you within 24 hours.
+            </p>
+          </motion.div>
+
+          <motion.form
+            {...fadeInUp}
+            className="glass-strong rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 space-y-6"
+            onSubmit={(e) => {
+              e.preventDefault();
+              // Handle form submission
+              const formData = new FormData(e.currentTarget);
+              console.log('Form submitted:', Object.fromEntries(formData));
+              alert('Thank you for your inquiry! We\'ll be in touch soon.');
+              e.currentTarget.reset();
+            }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Name Field */}
+              <div className="space-y-2">
+                <label htmlFor="name" className="flex items-center gap-2 text-sm font-medium text-neutral-300">
+                  <User className="w-4 h-4 text-purple-400" />
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="John Doe"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all"
+                />
+              </div>
+
+              {/* Phone Field */}
+              <div className="space-y-2">
+                <label htmlFor="phone" className="flex items-center gap-2 text-sm font-medium text-neutral-300">
+                  <Phone className="w-4 h-4 text-purple-400" />
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  placeholder="(555) 123-4567"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Email Field */}
+            <div className="space-y-2">
+              <label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-neutral-300">
+                <Mail className="w-4 h-4 text-purple-400" />
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="john@company.com"
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all"
+              />
+            </div>
+
+            {/* Inquiry Reason Field */}
+            <div className="space-y-2">
+              <label htmlFor="reason" className="flex items-center gap-2 text-sm font-medium text-neutral-300">
+                <MessageSquare className="w-4 h-4 text-purple-400" />
+                Why are you inquiring?
+              </label>
+              <textarea
+                id="reason"
+                name="reason"
+                required
+                rows={4}
+                placeholder="Tell us about your business needs and how we can help..."
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
+              />
+            </div>
+
+            {/* Submit Button */}
+            <div className="pt-4">
+              <button
+                type="submit"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-white text-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+                style={{
+                  background: 'linear-gradient(135deg, #a855f7 0%, #c084fc 100%)',
+                  boxShadow: '0 20px 50px rgba(168, 85, 247, 0.4)'
+                }}
+              >
+                Send Inquiry
+                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </motion.form>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section id="cta" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-purple-500/5 pointer-events-none" />
@@ -1667,7 +1784,7 @@ export function OneAppPageContent() {
             </p>
 
             <MagneticButton
-              href="/#contact"
+              href="#contact"
               className="group inline-flex items-center gap-2 sm:gap-4 px-6 sm:px-8 md:px-12 py-4 sm:py-5 md:py-6 rounded-full font-bold text-white text-base sm:text-lg md:text-xl lg:text-2xl transition-colors"
               style={{
                 background: 'linear-gradient(135deg, #a855f7 0%, #c084fc 100%)',
