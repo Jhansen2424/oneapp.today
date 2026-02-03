@@ -970,26 +970,6 @@ export function OneAppPageContent() {
         </motion.div>
       </section>
 
-      {/* The Problem Section - Chaos Slot Machine */}
-      <section id="problem" className="py-24 md:py-32 px-6 md:px-8 relative">
-        <div className="max-w-6xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">The Chaos</h2>
-            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">Most service businesses struggle with a fragmented system that leaks revenue every day.</p>
-          </motion.div>
-
-          <ChaosSlotMachine />
-
-          <motion.div {...fadeInUp} className="mt-16 text-center">
-            <div className="inline-block px-8 py-4 rounded-2xl bg-red-500/5 border border-red-500/20">
-              <p className="text-lg md:text-xl font-semibold text-red-400">
-                This isn&apos;t a marketing problem. It&apos;s a systems problem.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Your Journey Section - Introduction */}
       <section id="journey" className="py-24 md:py-32 px-6 md:px-8">
         <div className="max-w-6xl mx-auto">
@@ -1636,24 +1616,22 @@ export function OneAppPageContent() {
         </div>
       </section>
 
-      {/* Why Websites Fail Section - Browser Graveyard */}
-      <section className="py-24 md:py-32 px-6 md:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent relative overflow-hidden">
-        {/* Fog/mist effect at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-neutral-900/30 to-transparent pointer-events-none" />
-
-        <div className="max-w-6xl mx-auto relative z-10">
+      {/* The Problem Section - Chaos Slot Machine */}
+      <section id="problem" className="py-24 md:py-32 px-6 md:px-8 relative">
+        <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">Why Websites Alone <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Fail</span></h2>
-            <p className="text-xl text-neutral-400 mb-2">Traffic without systems is just expensive noise.</p>
-            <p className="text-sm text-neutral-500">Watch what happens to websites without backend systems...</p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">The Chaos</h2>
+            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">Most service businesses struggle with a fragmented system that leaks revenue every day.</p>
           </motion.div>
 
-          <BrowserGraveyard />
+          <ChaosSlotMachine />
 
-          <motion.div {...fadeInUp} className="mt-20 text-center">
-            <p className="text-xl md:text-2xl text-neutral-400 leading-relaxed">
-              That&apos;s why most website &quot;redesigns&quot; <span className="text-white font-semibold">don&apos;t move the needle.</span>
-            </p>
+          <motion.div {...fadeInUp} className="mt-16 text-center">
+            <div className="inline-block px-8 py-4 rounded-2xl bg-red-500/5 border border-red-500/20">
+              <p className="text-lg md:text-xl font-semibold text-red-400">
+                This isn&apos;t a marketing problem. It&apos;s a systems problem.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
