@@ -990,28 +990,6 @@ export function OneAppPageContent() {
         </div>
       </section>
 
-      {/* Why Websites Fail Section - Browser Graveyard */}
-      <section className="py-24 md:py-32 px-6 md:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent relative overflow-hidden">
-        {/* Fog/mist effect at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-neutral-900/30 to-transparent pointer-events-none" />
-
-        <div className="max-w-6xl mx-auto relative z-10">
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">Why Websites Alone <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Fail</span></h2>
-            <p className="text-xl text-neutral-400 mb-2">Traffic without systems is just expensive noise.</p>
-            <p className="text-sm text-neutral-500">Watch what happens to websites without backend systems...</p>
-          </motion.div>
-
-          <BrowserGraveyard />
-
-          <motion.div {...fadeInUp} className="mt-20 text-center">
-            <p className="text-xl md:text-2xl text-neutral-400 leading-relaxed">
-              That&apos;s why most website &quot;redesigns&quot; <span className="text-white font-semibold">don&apos;t move the needle.</span>
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Your Journey Section - Introduction */}
       <section id="journey" className="py-24 md:py-32 px-6 md:px-8">
         <div className="max-w-6xl mx-auto">
@@ -1653,6 +1631,28 @@ export function OneAppPageContent() {
           <motion.div {...fadeInUp} className="mt-16 text-center">
             <p className="text-lg text-purple-300 font-medium">
               Same platform. Same dashboard. No fragmentation.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why Websites Fail Section - Browser Graveyard */}
+      <section className="py-24 md:py-32 px-6 md:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent relative overflow-hidden">
+        {/* Fog/mist effect at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-neutral-900/30 to-transparent pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">Why Websites Alone <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Fail</span></h2>
+            <p className="text-xl text-neutral-400 mb-2">Traffic without systems is just expensive noise.</p>
+            <p className="text-sm text-neutral-500">Watch what happens to websites without backend systems...</p>
+          </motion.div>
+
+          <BrowserGraveyard />
+
+          <motion.div {...fadeInUp} className="mt-20 text-center">
+            <p className="text-xl md:text-2xl text-neutral-400 leading-relaxed">
+              That&apos;s why most website &quot;redesigns&quot; <span className="text-white font-semibold">don&apos;t move the needle.</span>
             </p>
           </motion.div>
         </div>
