@@ -66,9 +66,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: '/oneapp-logo.png', type: 'image/png' }],
-    shortcut: '/oneapp-logo.png',
-    apple: [{ url: '/oneapp-logo.png' }],
+    icon: [{ url: '/Facebook-Profile.jpg', type: 'image/jpeg' }],
+    shortcut: '/Facebook-Profile.jpg',
+    apple: [{ url: '/Facebook-Profile.jpg' }],
   },
   alternates: {
     canonical: BASE_URL,
