@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
 
           <div className="prose prose-invert prose-neutral max-w-none space-y-10 text-neutral-300 text-sm sm:text-base leading-relaxed">
             <p>
-              This Privacy Policy describes how OneApp Inc. (&ldquo;OneApp,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects, uses, and shares your personal information when you use our services.
+              This Privacy Policy describes how OneApp (&ldquo;OneApp,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects, uses, and shares your personal information when you use our services.
             </p>
 
             {/* Section 1 */}
@@ -127,7 +127,7 @@ export default function PrivacyPolicy() {
               </ul>
               <p className="mt-4">
                 To exercise these rights, contact us at{' '}
-                <a href="mailto:privacy@oneapp.com" className="text-blue-400 hover:text-blue-300 underline">privacy@oneapp.com</a>.
+                <a href="mailto:privacy@oneapp.today" className="text-blue-400 hover:text-blue-300 underline">privacy@oneapp.today</a>.
               </p>
             </section>
 
@@ -213,7 +213,7 @@ export default function PrivacyPolicy() {
               <ul className="list-disc list-inside space-y-1 mb-4">
                 <li>Clicking &ldquo;unsubscribe&rdquo; in any marketing email</li>
                 <li>Adjusting your notification preferences in account settings</li>
-                <li>Contacting us at <a href="mailto:privacy@oneapp.com" className="text-blue-400 hover:text-blue-300 underline">privacy@oneapp.com</a></li>
+                <li>Contacting us at <a href="mailto:privacy@oneapp.today" className="text-blue-400 hover:text-blue-300 underline">privacy@oneapp.today</a></li>
               </ul>
               <p>
                 Service-related communications (billing, security alerts) are not affected by marketing opt-outs.
@@ -242,16 +242,16 @@ export default function PrivacyPolicy() {
               <p className="mb-4">For privacy inquiries or to exercise your rights, contact us at:</p>
               <ul className="list-none space-y-2">
                 <li><span className="font-medium text-white">Email:</span>{' '}
-                  <a href="mailto:privacy@oneapp.com" className="text-blue-400 hover:text-blue-300 underline">privacy@oneapp.com</a>
+                  <a href="mailto:privacy@oneapp.today" className="text-blue-400 hover:text-blue-300 underline">privacy@oneapp.today</a>
                 </li>
-                <li><span className="font-medium text-white">Address:</span> OneApp Inc., Salt Lake City, Utah</li>
+                <li><span className="font-medium text-white">Address:</span> OneApp, 7633 S Main St, Midvale, UT 84047</li>
                 <li><span className="font-medium text-white">Data Protection Officer:</span>{' '}
-                  <a href="mailto:dpo@oneapp.com" className="text-blue-400 hover:text-blue-300 underline">dpo@oneapp.com</a>
+                  <a href="mailto:dpo@oneapp.today" className="text-blue-400 hover:text-blue-300 underline">dpo@oneapp.today</a>
                 </li>
               </ul>
               <p className="mt-4">
                 For EU residents, you may also contact our EU representative at{' '}
-                <a href="mailto:eu-representative@oneapp.com" className="text-blue-400 hover:text-blue-300 underline">eu-representative@oneapp.com</a>.
+                <a href="mailto:eu-representative@oneapp.today" className="text-blue-400 hover:text-blue-300 underline">eu-representative@oneapp.today</a>.
               </p>
             </section>
           </div>
