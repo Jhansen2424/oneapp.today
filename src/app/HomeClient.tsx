@@ -1789,9 +1789,14 @@ export function OneAppPageContent() {
               className="h-8 sm:h-10 md:h-12 w-auto"
             />
           </Link>
-          <p className="text-neutral-500 text-xs sm:text-sm font-medium text-center">
-            © {new Date().getFullYear()} OneApp. Precision-engineered growth.
-          </p>
+          <div className="flex flex-col items-center md:items-end gap-2">
+            <Link href="/privacy" className="text-neutral-500 hover:text-neutral-300 text-xs sm:text-sm font-medium transition-colors">
+              Privacy Policy
+            </Link>
+            <p className="text-neutral-500 text-xs sm:text-sm font-medium text-center">
+              © {new Date().getFullYear()} OneApp. Precision-engineered growth.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
