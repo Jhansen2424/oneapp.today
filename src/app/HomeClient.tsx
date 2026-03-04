@@ -24,12 +24,22 @@ import {
   Mail,
   MessageSquare,
   User,
-  Send
+  Send,
+  Search,
+  Paintbrush,
+  Receipt,
+  Waypoints,
+  TrendingUp,
+  Zap,
+  Activity,
+  RefreshCw,
+  CreditCard
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { LeadsDashboard } from "../components/revenue-automation/LeadsDashboard";
+// LeadsDashboard removed from hero — can re-import if needed for other sections
+// import { LeadsDashboard } from "../components/revenue-automation/LeadsDashboard";
 
 // ============================================
 // ANIMATED COUNTER COMPONENT
@@ -844,7 +854,7 @@ export function OneAppPageContent() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/[0.08] backdrop-blur-xl border-b border-white/10">
+      <nav aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 bg-white/[0.08] backdrop-blur-xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 sm:py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -915,91 +925,447 @@ export function OneAppPageContent() {
         </AnimatePresence>
       </nav>
 
-      {/* Hero Section - Minimal Centered Design */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden">
-        {/* Subtle radial gradient background */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(168,85,247,0.15),transparent)] pointer-events-none" />
+      <main>
+      {/* Hero Section - Split Layout */}
+      <section aria-label="OneApp — AI-powered website builder, SEO, CRM, and billing for service businesses" className="relative min-h-screen flex items-center px-6 sm:px-8 md:px-12 lg:px-16 pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden">
+        {/* Background grid pattern */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
-        <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
-          {/* Headline with Cinematic Text Reveal */}
-          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-tight leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-6 text-white">
-            <TextReveal delay={0.1} staggerDelay={0.12}>
-              Automate More.
-            </TextReveal>
-            <br />
-            <TextReveal delay={0.5} staggerDelay={0.12}>
-              Manage Less. Grow Faster.
-            </TextReveal>
-          </h1>
+        <div className="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Copy */}
+          <div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-6 text-white">
+              <TextReveal delay={0.1} staggerDelay={0.12}>
+                More Revenue.
+              </TextReveal>
+              <br />
+              <TextReveal delay={0.4} staggerDelay={0.12}>
+                Less Chaos.
+              </TextReveal>
+              <br />
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+                className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent"
+              >
+                All AI.
+              </motion.span>
+            </h1>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-neutral-400 mb-8 sm:mb-10 max-w-2xl mx-auto px-2"
-          >
-            We replace scattered tools with one connected system. <span className="text-purple-400">Powered by OneApp AI.</span>
-          </motion.p>
-
-          {/* CTA Button with Magnetic Effect */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <MagneticButton
-              href="#cta"
-              className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white text-[#121218] font-semibold text-sm sm:text-base hover:bg-neutral-200 transition-colors"
-              strength={0.4}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
+              className="text-lg sm:text-xl text-neutral-400 mb-10 max-w-xl leading-relaxed"
             >
-              Get Started Now
-              <ArrowRight className="w-4 h-4" />
-            </MagneticButton>
+              AI-driven website, SEO, CRM, and billing — working together
+              so your business runs itself.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.3 }}
+            >
+              <MagneticButton
+                href="#journey"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[#0a0a0a] font-semibold text-base hover:bg-neutral-200 transition-colors"
+                strength={0.4}
+              >
+                See What&apos;s Possible
+                <ArrowRight className="w-4 h-4" />
+              </MagneticButton>
+            </motion.div>
+          </div>
+
+          {/* Right Column - Hub & Spoke Diagram */}
+          {(() => {
+            // All positions defined once in percentages — single source of truth
+            const center = { x: 50, y: 50 };
+            // 5 nodes evenly spaced in a circle (72° apart), starting from top (-90°)
+            const radius = 40; // % from center
+            const nodes = [
+              { icon: Globe, label: "Website", angle: -90 },
+              { icon: Paintbrush, label: "Design", angle: -90 + 72 },
+              { icon: Search, label: "SEO", angle: -90 + 144 },
+              { icon: Receipt, label: "Billing", angle: -90 + 216 },
+              { icon: Users, label: "CRM", angle: -90 + 288 },
+            ].map((n) => ({
+              ...n,
+              x: center.x + radius * Math.cos((n.angle * Math.PI) / 180),
+              y: center.y + radius * Math.sin((n.angle * Math.PI) / 180),
+            }));
+
+            return (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="relative w-full aspect-square max-w-[560px] mx-auto hidden lg:block"
+              >
+                {/* SVG lines — uses same % coords scaled to viewBox 100x100 */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="pulseGlow">
+                      <stop offset="0%" stopColor="rgba(168,85,247,0.9)" />
+                      <stop offset="100%" stopColor="rgba(168,85,247,0)" />
+                    </radialGradient>
+                  </defs>
+
+                  {/* Hub-to-spoke lines */}
+                  {nodes.map((node, i) => (
+                    <g key={`hub-line-${i}`}>
+                      <motion.line
+                        x1={center.x} y1={center.y}
+                        x2={node.x} y2={node.y}
+                        stroke="rgba(168,85,247,0.2)"
+                        strokeWidth="0.2"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 0.8, delay: 1.0 + i * 0.1 }}
+                      />
+                      {/* Energy dot traveling hub → node → hub */}
+                      <motion.circle
+                        r="0.6"
+                        fill="url(#pulseGlow)"
+                        initial={{ opacity: 0 }}
+                        animate={{
+                          cx: [center.x, node.x, center.x],
+                          cy: [center.y, node.y, center.y],
+                          opacity: [0, 0.9, 0],
+                        }}
+                        transition={{
+                          duration: 3 + i * 0.4,
+                          delay: 2.0 + i * 0.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      />
+                    </g>
+                  ))}
+
+                  {/* Outer lines connecting adjacent nodes */}
+                  {nodes.map((node, i) => {
+                    const next = nodes[(i + 1) % nodes.length]!;
+                    return (
+                      <g key={`outer-line-${i}`}>
+                        <motion.line
+                          x1={node.x} y1={node.y}
+                          x2={next.x} y2={next.y}
+                          stroke="rgba(168,85,247,0.1)"
+                          strokeWidth="0.15"
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 0.6, delay: 1.5 + i * 0.08 }}
+                        />
+                        <motion.circle
+                          r="0.4"
+                          fill="rgba(168,85,247,0.6)"
+                          initial={{ opacity: 0 }}
+                          animate={{
+                            cx: [node.x, next.x],
+                            cy: [node.y, next.y],
+                            opacity: [0, 0.6, 0],
+                          }}
+                          transition={{
+                            duration: 4 + i * 0.3,
+                            delay: 3.0 + i * 0.8,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          }}
+                        />
+                      </g>
+                    );
+                  })}
+
+                  {/* Center pulsing glow — multiple rings */}
+                  <motion.circle
+                    cx={center.x} cy={center.y} r="8"
+                    fill="rgba(168,85,247,0.12)"
+                    animate={{ r: [8, 16, 8], opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <motion.circle
+                    cx={center.x} cy={center.y} r="12"
+                    fill="none"
+                    stroke="rgba(168,85,247,0.15)"
+                    strokeWidth="0.3"
+                    animate={{ r: [12, 20, 12], opacity: [0.2, 0.5, 0.2] }}
+                    transition={{ duration: 2.5, delay: 0.3, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </svg>
+
+                {/* Center Hub — dead center at 50%, 50% */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
+                    className="flex flex-col items-center"
+                  >
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.1, 1],
+                        boxShadow: [
+                          "0 0 30px rgba(168,85,247,0.2), 0 0 60px rgba(168,85,247,0.1)",
+                          "0 0 50px rgba(168,85,247,0.4), 0 0 100px rgba(168,85,247,0.2)",
+                          "0 0 30px rgba(168,85,247,0.2), 0 0 60px rgba(168,85,247,0.1)",
+                        ],
+                      }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                      className="w-20 h-20 rounded-2xl bg-[#1a0f2e] border border-purple-500/40 flex items-center justify-center"
+                    >
+                      <Waypoints className="w-9 h-9 text-purple-400" />
+                    </motion.div>
+                    <span className="text-white font-bold text-lg mt-3">OneApp</span>
+                    <span className="text-purple-400 text-xs tracking-wide">Everything. Connected.</span>
+                  </motion.div>
+                </div>
+
+                {/* Spoke Nodes — positioned using same coords as SVG */}
+                {nodes.map((node, i) => (
+                  <motion.div
+                    key={node.label}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 1.0 + i * 0.12, type: "spring" }}
+                    className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
+                    style={{ top: `${node.y}%`, left: `${node.x}%` }}
+                  >
+                    <motion.div
+                      className="flex flex-col items-center"
+                      animate={{ y: [0, -6, 0] }}
+                      transition={{ duration: 4, delay: i * 0.7, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <div className="w-16 h-16 rounded-2xl bg-[#1a0f2e] border border-purple-500/20 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.1)] hover:border-purple-400/50 transition-colors">
+                        <node.icon className="w-7 h-7 text-purple-400" />
+                      </div>
+                      <span className="text-neutral-300 text-sm font-medium mt-2">{node.label}</span>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            );
+          })()}
+
+          {/* Mobile version of the hub - simplified */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="lg:hidden flex flex-wrap justify-center gap-4 mt-4"
+          >
+            {[
+              { icon: Globe, label: "Website" },
+              { icon: Paintbrush, label: "Design" },
+              { icon: Search, label: "SEO" },
+              { icon: Users, label: "CRM" },
+              { icon: Receipt, label: "Billing" },
+            ].map((node) => (
+              <div key={node.label} className="flex flex-col items-center gap-2">
+                <div className="w-14 h-14 rounded-xl bg-[#1a0f2e] border border-purple-500/20 flex items-center justify-center">
+                  <node.icon className="w-6 h-6 text-purple-400" />
+                </div>
+                <span className="text-neutral-400 text-xs font-medium">{node.label}</span>
+              </div>
+            ))}
           </motion.div>
         </div>
-
-        {/* Dashboard Component */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative z-10 w-full max-w-6xl mx-auto mt-10 sm:mt-16 px-2 sm:px-4"
-        >
-          <LeadsDashboard dashboardUrl="oneapp.today" />
-        </motion.div>
       </section>
 
-      {/* Your Journey Section - Introduction */}
-      <section id="journey" className="py-24 md:py-32 px-6 md:px-8">
+      {/* Your Journey Section - Timeline */}
+      <section id="journey" aria-label="Your journey with OneApp — 5 phases from website to billing" className="py-24 md:py-32 px-6 md:px-8 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Your Journey With OneApp</h2>
-            <p className="text-xl text-neutral-400 max-w-3xl mx-auto">From broken systems to a revenue-generating machine. Here&apos;s exactly how we transform your business in 6 phases.</p>
+          <motion.div {...fadeInUp} className="text-center mb-16 md:mb-24">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent italic">Your Journey With Us</h2>
+            <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto">From scattered tools to a unified platform. Here&apos;s how we build your system, step by step.</p>
           </motion.div>
+
+          {/* Animated Timeline */}
+          {(() => {
+            const timelineRef = useRef<HTMLDivElement>(null);
+            const isTimelineInView = useInView(timelineRef, { once: true, margin: "-100px" });
+
+            const steps = [
+              { icon: Globe, label: "Site Builder", num: "01" },
+              { icon: Search, label: "SEO", num: "02" },
+              { icon: Paintbrush, label: "Design", num: "03" },
+              { icon: Users, label: "CRM", num: "04" },
+              { icon: Receipt, label: "Billing", num: "05" },
+            ];
+
+            return (
+              <div ref={timelineRef} className="relative">
+                {/* Desktop Timeline */}
+                <div className="hidden md:block relative">
+                  {/* Background track line */}
+                  <div className="absolute top-10 left-[10%] right-[10%] h-[2px] bg-white/5 rounded-full" />
+
+                  {/* Animated fill line */}
+                  <motion.div
+                    className="absolute top-10 left-[10%] h-[2px] rounded-full"
+                    style={{
+                      background: 'linear-gradient(90deg, rgba(168,85,247,0.8), rgba(192,132,252,0.6))',
+                      boxShadow: '0 0 12px rgba(168,85,247,0.4), 0 0 30px rgba(168,85,247,0.2)',
+                    }}
+                    initial={{ width: "0%" }}
+                    animate={isTimelineInView ? { width: "80%" } : { width: "0%" }}
+                    transition={{ duration: 2, ease: "easeOut", delay: 0.3 }}
+                  />
+
+                  {/* Step nodes */}
+                  <div className="relative flex justify-between px-[10%]">
+                    {steps.map((step, i) => (
+                      <motion.div
+                        key={step.num}
+                        className="flex flex-col items-center"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.5, delay: 0.3 + i * 0.4 }}
+                      >
+                        {/* Icon node */}
+                        <motion.div
+                          className="relative"
+                          initial={{ scale: 0 }}
+                          animate={isTimelineInView ? { scale: 1 } : {}}
+                          transition={{ duration: 0.4, delay: 0.5 + i * 0.4, type: "spring" }}
+                        >
+                          {/* Glow behind node */}
+                          <motion.div
+                            className="absolute -inset-3 rounded-2xl bg-purple-500/20 blur-xl"
+                            initial={{ opacity: 0 }}
+                            animate={isTimelineInView ? { opacity: [0, 0.6, 0.3] } : {}}
+                            transition={{ duration: 0.8, delay: 0.6 + i * 0.4 }}
+                          />
+                          <div className="relative w-20 h-20 rounded-2xl bg-[#1a0f2e] border border-purple-500/30 flex items-center justify-center shadow-[0_0_25px_rgba(168,85,247,0.15)]">
+                            <step.icon className="w-8 h-8 text-purple-400" />
+                          </div>
+                        </motion.div>
+
+                        {/* Step number + label */}
+                        <motion.span
+                          className="text-purple-400 text-xs font-bold tracking-widest mt-5"
+                          initial={{ opacity: 0 }}
+                          animate={isTimelineInView ? { opacity: 1 } : {}}
+                          transition={{ duration: 0.4, delay: 0.7 + i * 0.4 }}
+                        >
+                          {step.num}
+                        </motion.span>
+                        <motion.span
+                          className="text-white font-semibold text-sm mt-1"
+                          initial={{ opacity: 0 }}
+                          animate={isTimelineInView ? { opacity: 1 } : {}}
+                          transition={{ duration: 0.4, delay: 0.8 + i * 0.4 }}
+                        >
+                          {step.label}
+                        </motion.span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Mobile Timeline - vertical */}
+                <div className="md:hidden flex flex-col gap-6">
+                  {steps.map((step, i) => (
+                    <motion.div
+                      key={step.num}
+                      className="flex items-center gap-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={isTimelineInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 0.2 + i * 0.15 }}
+                    >
+                      <div className="w-14 h-14 rounded-xl bg-[#1a0f2e] border border-purple-500/30 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(168,85,247,0.15)]">
+                        <step.icon className="w-6 h-6 text-purple-400" />
+                      </div>
+                      <div>
+                        <span className="text-purple-400 text-xs font-bold tracking-widest">{step.num}</span>
+                        <p className="text-white font-semibold text-sm">{step.label}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
-      {/* Phase 1: Custom Website Build */}
-      <section className="py-24 md:py-32 px-6 md:px-8 relative">
+      {/* Phase 1: AI Site Builder */}
+      <section aria-label="Phase 1 — AI website builder that generates sites from a text prompt" className="py-24 md:py-32 px-6 md:px-8 relative">
         <div className="absolute inset-0 bg-purple-500/5 blur-[120px] rounded-full opacity-30 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left — Screenshot */}
+            <motion.div {...fadeInUp} className="relative">
+              <ScrollZoomImage
+                src="/screenshots/siteBuilder-desktop.png"
+                alt="AI-Powered Site Builder"
+              />
+              {/* Floating AI prompt widget with typing effect */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+                className="absolute -bottom-6 -left-2 sm:left-4 rounded-xl border border-purple-500/30 shadow-xl bg-[#1a1a22] p-4"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <Globe className="w-5 h-5 text-purple-400" />
+                  <span className="text-xs font-bold text-purple-300 tracking-wider uppercase">AI Site Builder</span>
+                  <span className="w-2 h-2 rounded-full bg-green-400 ml-1" />
+                </div>
+                {/* Typing animation */}
+                {(() => {
+                  const promptText = "Build a pizza shop landing page with online ordering and a reservation";
+                  const promptRef = useRef<HTMLDivElement>(null);
+                  const isPromptInView = useInView(promptRef, { once: true });
+                  const [displayedText, setDisplayedText] = useState("");
+
+                  useEffect(() => {
+                    if (!isPromptInView) return;
+                    let i = 0;
+                    const timer = setInterval(() => {
+                      if (i < promptText.length) {
+                        setDisplayedText(promptText.slice(0, i + 1));
+                        i++;
+                      } else {
+                        clearInterval(timer);
+                      }
+                    }, 40);
+                    return () => clearInterval(timer);
+                  }, [isPromptInView]);
+
+                  return (
+                    <div ref={promptRef} className="text-sm text-neutral-300 max-w-[240px] min-h-[3.5em]">
+                      {displayedText}
+                      <motion.span
+                        className="inline-block w-[2px] h-[14px] bg-purple-400 ml-[1px] align-middle"
+                        animate={{ opacity: [1, 0] }}
+                        transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
+                      />
+                    </div>
+                  );
+                })()}
+              </motion.div>
+            </motion.div>
+
+            {/* Right — Copy */}
             <motion.div {...fadeInUp}>
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-sm text-purple-300 mb-8 border border-purple-500/20">
                 <span className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold text-sm">1</span>
                 <span className="font-bold tracking-wider">PHASE ONE</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">We Build It. <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">You Own It.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Describe It. <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">We Generate It.</span></h2>
               <p className="text-xl text-neutral-400 mb-8 leading-relaxed">
-                We craft your website in our AI-powered page builder, then hand you the keys. Need a new landing page? Just ask. Want to update your hero section? One prompt. No more WordPress nightmares or waiting on developers—you&apos;re always one conversation away from your next update.
+                Whether you&apos;re an agency spinning up client sites or a business owner who needs a page tomorrow — just type what you want. Our AI builds it in real time.
               </p>
               <div className="space-y-4">
                 {[
-                  "Blazing-fast Next.js under the hood",
-                  "Edit anything with simple AI prompts",
-                  "No coding required—ever",
-                  "Launch new pages in minutes, not weeks",
+                  "Agencies: spin up client sites in minutes, not weeks",
+                  "Business owners: update your site with plain English",
+                  "AI generates pages, sections, and layouts on demand",
+                  "White-label ready — your brand, your clients, zero friction",
                   "Mobile-perfect and SEO-optimized automatically"
                 ].map((item, index) => (
                   <motion.div
@@ -1016,71 +1382,35 @@ export function OneAppPageContent() {
                 ))}
               </div>
             </motion.div>
-            <motion.div
-              {...fadeInUp}
-              className="relative"
-            >
-              <ScrollZoomImage
-                src="/screenshots/siteBuilder-desktop.png"
-                alt="AI-Powered Site Builder"
-              />
-            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Phase 2: SEO Automation */}
-      <section className="py-24 md:py-32 px-6 md:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent">
+      {/* Phase 2: AI SEO & AEO */}
+      <section aria-label="Phase 2 — AI-powered SEO and AI Engine Optimization for Google and AI search" className="py-24 md:py-32 px-6 md:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              {...fadeInUp}
-              className="relative order-2 lg:order-1"
-            >
-              <ScrollZoomImage
-                src="/screenshots/blogGenerator-desktop.png"
-                alt="AI Content Management"
-              />
-              {/* Floating AI badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="absolute -bottom-4 -left-4 rounded-xl border border-purple-500/30 shadow-xl bg-[#1a1a22] p-3 animate-float"
-                style={{ animationDelay: '1s' }}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 text-purple-400" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-white">AI Ready</p>
-                    <p className="text-[10px] text-neutral-500">Content Assistant</p>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-            <motion.div {...fadeInUp} className="order-1 lg:order-2">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left — Copy */}
+            <motion.div {...fadeInUp}>
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-sm text-purple-300 mb-8 border border-purple-500/20">
                 <span className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold text-sm">2</span>
-                <span className="font-bold tracking-wider">PHASE TWO</span>
+                <span className="font-bold tracking-wider">AI SEO &amp; AEO</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">SEO on <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Autopilot</span></h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Rank Higher. <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Get Found by AI.</span></h2>
               <p className="text-xl text-neutral-400 mb-8 leading-relaxed">
-                We automate your entire SEO journey. From keyword research to blog posts, jobs pages to landing pages—our AI handles the heavy lifting. Industry-specific traffic tools and PR distribution get you found by the right people, without the grind.
+                Whether you&apos;re a local business or a growing agency, we automate your entire SEO journey — from keyword research to blog posts, landing pages to PR distribution. Plus, we optimize for Answer Engine Optimization so AI assistants recommend you first.
               </p>
               <div className="space-y-4">
                 {[
                   "AI-powered keyword research tailored to your market",
                   "Automated blog posts that actually rank",
-                  "Jobs pages and landing pages on demand",
-                  "Industry-specific traffic tools built in",
+                  "Answer Engine Optimization for AI discovery",
+                  "White-label SEO dashboards for agencies",
                   "PR distribution to boost your authority"
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
@@ -1092,87 +1422,130 @@ export function OneAppPageContent() {
                 ))}
               </div>
             </motion.div>
+
+            {/* Right — Screenshot + Keyword Radar */}
+            <motion.div {...fadeInUp} className="relative">
+              <ScrollZoomImage
+                src="/seo (1).webp"
+                alt="AI SEO & AEO Dashboard"
+              />
+
+              {/* Keyword Tracker Widget — top-right corner of screenshot */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+                className="absolute -top-4 -right-4 sm:-right-14 z-20 rounded-2xl bg-[#12121a] border border-purple-500/25 shadow-[0_8px_40px_rgba(0,0,0,0.5)] p-4 w-[200px]"
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <Search className="w-3.5 h-3.5 text-purple-400" />
+                    <span className="text-[10px] font-bold text-purple-300 tracking-wider uppercase">Keywords</span>
+                  </div>
+                  <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+                </div>
+
+                {/* Big number */}
+                <div className="text-center mb-3">
+                  <span className="text-3xl font-bold text-white">442</span>
+                  <p className="text-[10px] text-purple-400 font-medium">Tracked Keywords</p>
+                </div>
+
+                {/* Keyword list with pulsing dots */}
+                <div className="space-y-2">
+                  {[
+                    "HVAC installation",
+                    "local electrician",
+                    "roof repair cost",
+                    "plumber near me",
+                  ].map((kw, i) => (
+                    <motion.div
+                      key={i}
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.8 + i * 0.15 }}
+                    >
+                      <motion.span
+                        className="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0"
+                        animate={{ opacity: [0.4, 1, 0.4] }}
+                        transition={{ duration: 2, delay: i * 0.5, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                      <span className="text-[11px] text-neutral-300">{kw}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Phase 3: Leads Flow In */}
-      <section className="py-24 md:py-32 px-6 md:px-8 relative">
+      {/* Phase 3: Web Design */}
+      <section aria-label="Phase 3 — Conversion-optimized web design with performance tuning" className="py-24 md:py-32 px-6 md:px-8 relative">
+        <div className="absolute inset-0 bg-purple-500/5 blur-[120px] rounded-full opacity-20 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left — Stats Grid */}
+            <motion.div {...fadeInUp}>
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                {[
+                  { icon: Users, value: "30", suffix: "+", label: "New Leads / Month", trend: "+47%" },
+                  { icon: TrendingUp, value: "4.2", suffix: "x", label: "Revenue Growth", trend: "+320%" },
+                  { icon: Zap, value: "0.5", suffix: "s", label: "Load Time", trend: null },
+                  { icon: BarChart3, value: "98", suffix: "", label: "Performance Score", trend: null },
+                  { icon: Search, value: "1", suffix: "st", label: "Page SEO Ranking", trend: null },
+                  { icon: Activity, value: "99.9", suffix: "%", label: "Uptime Guarantee", trend: null },
+                ].map((stat, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="rounded-xl border border-white/10 bg-[#12121a] p-4 hover:border-purple-500/30 transition-colors"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-9 h-9 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                        <stat.icon className="w-4 h-4 text-purple-400" />
+                      </div>
+                      {stat.trend && (
+                        <span className="text-[10px] font-semibold text-purple-400 flex items-center gap-0.5">
+                          <TrendingUp className="w-3 h-3" />
+                          {stat.trend}
+                        </span>
+                      )}
+                    </div>
+                    <div className="mb-1">
+                      <span className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</span>
+                      <span className="text-sm font-semibold text-neutral-400 ml-0.5">{stat.suffix}</span>
+                    </div>
+                    <p className="text-[11px] text-neutral-500 font-medium">{stat.label}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right — Copy */}
             <motion.div {...fadeInUp}>
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-sm text-purple-300 mb-8 border border-purple-500/20">
                 <span className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold text-sm">3</span>
-                <span className="font-bold tracking-wider">PHASE THREE</span>
+                <span className="font-bold tracking-wider">WEB DESIGN</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Leads Start <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Flowing In</span></h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Designed to Convert. <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Built to Last.</span></h2>
               <p className="text-xl text-neutral-400 mb-8 leading-relaxed">
-                Your new website has smart forms that capture every inquiry and funnel them directly into your OneApp dashboard. No more lost leads. No more manual data entry.
+                Every pixel has a purpose. We design custom websites that look stunning and drive action — not just templates with your logo slapped on. Your brand, your vision, engineered for results.
               </p>
               <div className="space-y-4">
                 {[
-                  "Smart forms that capture all lead details",
-                  "Instant notifications when leads come in",
-                  "Automatic lead scoring and prioritization",
-                  "All leads organized in one central dashboard",
-                  "Follow-up sequences triggered automatically"
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-purple-400 shrink-0" />
-                    <span className="text-white/80">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div
-              {...fadeInUp}
-              className="relative"
-            >
-              <ScrollZoomImage
-                src="/screenshots/leads-desktop.png"
-                alt="Lead Management Dashboard"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Phase 4: OneApp CRM */}
-      <section className="py-24 md:py-32 px-6 md:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              {...fadeInUp}
-              className="relative order-2 lg:order-1"
-            >
-              <ScrollZoomImage
-                src="/screenshots/taskPlanner-calendar-desktop.png"
-                alt="OneApp CRM Dashboard"
-              />
-            </motion.div>
-            <motion.div {...fadeInUp} className="order-1 lg:order-2">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-sm text-purple-300 mb-8 border border-purple-500/20">
-                <span className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold text-sm">4</span>
-                <span className="font-bold tracking-wider">PHASE FOUR</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">OneApp Becomes Your <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Command Center</span></h2>
-              <p className="text-xl text-neutral-400 mb-8 leading-relaxed">
-                OneApp isn&apos;t just a CRM—it&apos;s the central nervous system for your entire business. Manage leads, track customer interactions, assign tasks, and handle customer service all from one powerful dashboard.
-              </p>
-              <div className="space-y-4">
-                {[
-                  "Complete customer history at your fingertips",
-                  "Task management with clear ownership",
-                  "Automated follow-ups and reminders",
-                  "Customer service tickets in one place",
-                  "Team collaboration built right in"
+                  "Custom designs tailored to your brand",
+                  "Conversion-focused layouts and user flows",
+                  "Responsive across every device and screen",
+                  "Performance-optimized for speed and SEO",
+                  "Ongoing design support and iteration"
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -1192,30 +1565,90 @@ export function OneAppPageContent() {
         </div>
       </section>
 
-      {/* Phase 5: AI Agents Answer Calls */}
-      <section className="py-24 md:py-32 px-6 md:px-8 relative">
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Phase 4: CRM */}
+      <section aria-label="Phase 4 — Built-in CRM for lead tracking, pipeline management, and automated follow-ups" className="py-24 md:py-32 px-6 md:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left — Screenshot + floating widgets */}
+            <motion.div {...fadeInUp} className="relative">
+              <ScrollZoomImage
+                src="/CRM.png"
+                alt="OneApp CRM Dashboard"
+              />
+
+              {/* Floating stat: Pipeline Value — top right */}
+              <motion.div
+                initial={{ opacity: 0, y: -15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="absolute -top-4 right-4 sm:right-8 z-20 rounded-xl bg-[#12121a] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.4)] px-4 py-3 flex items-center gap-3"
+              >
+                <div className="w-9 h-9 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                  <TrendingUp className="w-4 h-4 text-green-400" />
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-white">$45K</p>
+                  <p className="text-[10px] text-neutral-500 font-medium">Pipeline Value</p>
+                </div>
+              </motion.div>
+
+              {/* Floating stat: Active Leads — bottom left */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7 }}
+                className="absolute -bottom-4 left-2 sm:left-4 z-20 rounded-xl bg-[#12121a] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.4)] px-4 py-3 flex items-center gap-3"
+              >
+                <div className="w-9 h-9 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                  <Users className="w-4 h-4 text-purple-400" />
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-white">12 Active</p>
+                  <p className="text-[10px] text-neutral-500 font-medium">Leads This Week</p>
+                </div>
+              </motion.div>
+
+              {/* Floating stat: Follow-up Rate — bottom center-right */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.9 }}
+                className="absolute -bottom-4 right-12 sm:right-20 z-20 rounded-xl bg-[#12121a] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.4)] px-4 py-3 flex items-center gap-3"
+              >
+                <div className="w-9 h-9 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                  <Target className="w-4 h-4 text-amber-400" />
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-white">98%</p>
+                  <p className="text-[10px] text-neutral-500 font-medium">Follow-up Rate</p>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Right — Copy */}
             <motion.div {...fadeInUp}>
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-sm text-purple-300 mb-8 border border-purple-500/20">
-                <span className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold text-sm">5</span>
-                <span className="font-bold tracking-wider">PHASE FIVE</span>
+                <span className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold text-sm">4</span>
+                <span className="font-bold tracking-wider">CRM</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">AI Agents <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Answer Your Calls</span></h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Your <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Command Center</span> for Every Relationship</h2>
               <p className="text-xl text-neutral-400 mb-8 leading-relaxed">
-                Never miss another call. Our AI-powered voice agents handle incoming calls 24/7, qualify leads, answer questions, and book appointments—all while sounding completely natural.
+                Whether you&apos;re an agency managing dozens of clients or a business nurturing every lead — OneApp&apos;s CRM keeps every relationship on track. Manage pipelines, automate follow-ups, and close deals faster from one dashboard.
               </p>
               <div className="space-y-4">
                 {[
-                  "24/7 call answering—no more missed opportunities",
-                  "Natural-sounding AI that represents your brand",
-                  "Automatic call logging and transcription",
-                  "Smart lead qualification on every call",
-                  "Instant handoff to your team when needed"
+                  "Agencies: manage client pipelines across accounts",
+                  "Business owners: never lose a lead again",
+                  "Automated follow-ups and smart reminders",
+                  "Full customer history at your fingertips",
+                  "Team collaboration with clear ownership"
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
@@ -1227,195 +1660,104 @@ export function OneAppPageContent() {
                 ))}
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Phase 5: Billing & Payments */}
+      <section aria-label="Phase 5 — Invoicing, payment collection, and subscription billing" className="py-24 md:py-32 px-6 md:px-8 relative">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left: Copy + Feature Cards */}
+            <motion.div {...fadeInUp}>
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-sm text-purple-300 mb-8 border border-purple-500/20">
+                <span className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold text-sm">5</span>
+                <span className="font-bold tracking-wider">BILLING & PAYMENTS</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Invoice. Collect. <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">Repeat.</span></h2>
+              <p className="text-xl text-neutral-400 mb-8 leading-relaxed">
+                Bill clients under your brand with automated invoicing, payment collection, and subscription management—all built into the same platform you already use.
+              </p>
+
+              {/* 2x2 Feature Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: Receipt, title: "Invoicing", desc: "Branded invoices sent automatically" },
+                  { icon: CreditCard, title: "Payments", desc: "Accept cards, ACH, and more" },
+                  { icon: RefreshCw, title: "Subscriptions", desc: "Recurring billing on autopilot" },
+                  { icon: BarChart3, title: "Reporting", desc: "Revenue insights at a glance" },
+                ].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-purple-500/30 transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-purple-500/15 flex items-center justify-center mb-3">
+                      <feature.icon className="w-5 h-5 text-purple-400" />
+                    </div>
+                    <h4 className="text-sm font-semibold text-white mb-1">{feature.title}</h4>
+                    <p className="text-xs text-neutral-500">{feature.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right: Screenshot + Floating Widgets */}
             <motion.div
               {...fadeInUp}
               className="relative"
             >
               <ScrollZoomImage
-                src="/screenshots/callHistory-desktop.png"
-                alt="AI Voice Agents Dashboard"
+                src="/INVOICE.png"
+                alt="Billing & Payments Dashboard"
               />
-              {/* Floating call notification */}
+              {/* Floating Widget - Collected This Month */}
               <motion.div
                 initial={{ opacity: 0, x: 20, y: -20 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="absolute -top-4 -right-4 rounded-xl border border-white/10 shadow-xl bg-[#1a1a22] p-3 animate-float"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <Phone className="w-4 h-4 text-green-400" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-white">Call Answered</p>
-                    <p className="text-[10px] text-neutral-500">AI Agent Active</p>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Phase 6: Revenue Increases */}
-      <section className="py-24 md:py-32 px-6 md:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              {...fadeInUp}
-              className="relative order-2 lg:order-1"
-            >
-              <ScrollZoomImage
-                src="/screenshots/revenueGrowth-desktop.png"
-                alt="Revenue Analytics Dashboard"
-              />
-              {/* Floating Widget 1 - Total Revenue with Animated Counter */}
-              <motion.div
-                initial={{ opacity: 0, x: -50, y: 20 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="absolute -top-4 -left-4 z-20 rounded-2xl border border-green-500/30 shadow-xl bg-[#1a1a22] p-4 animate-float"
-                style={{ animationDelay: '0s' }}
+                className="absolute -top-4 -right-4 sm:-right-10 z-20 rounded-xl border border-purple-500/30 shadow-xl bg-[#1a1a22] p-3 animate-float"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
-                    <DollarSign className="w-5 h-5 text-green-400" />
+                  <div className="w-9 h-9 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                    <DollarSign className="w-5 h-5 text-purple-400" />
                   </div>
                   <div>
-                    <p className="text-lg font-bold text-white">
-                      <AnimatedCounter value={1250400} prefix="$" duration={2.5} />
-                    </p>
-                    <p className="text-[10px] text-green-400 font-semibold">+47% Revenue</p>
+                    <p className="text-sm font-bold text-white">$84,500</p>
+                    <p className="text-[10px] text-neutral-500">Collected This Month</p>
                   </div>
                 </div>
               </motion.div>
-
-              {/* Floating Widget 2 - Total Leads with Animated Counter */}
+              {/* Floating Widget - Invoices Sent */}
               <motion.div
-                initial={{ opacity: 0, x: 50, y: -20 }}
+                initial={{ opacity: 0, x: -20, y: 20 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                className="absolute top-8 -right-4 z-20 rounded-2xl border border-purple-500/30 shadow-xl bg-[#1a1a22] p-4 animate-float"
-                style={{ animationDelay: '0.5s' }}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                    <Users className="w-5 h-5 text-purple-400" />
-                  </div>
-                  <div>
-                    <p className="text-lg font-bold text-white">
-                      <AnimatedCounter value={4500} duration={2} />
-                    </p>
-                    <p className="text-[10px] text-purple-400 font-semibold">+65% Leads</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Floating Widget 3 - Web Traffic with Animated Counter */}
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
-                className="absolute bottom-20 -left-6 z-20 rounded-2xl border border-purple-500/30 shadow-xl bg-[#1a1a22] p-4 animate-float"
+                className="absolute bottom-12 -left-4 sm:-left-10 z-20 rounded-xl border border-purple-500/30 shadow-xl bg-[#1a1a22] p-3 animate-float"
                 style={{ animationDelay: '1s' }}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                    <Globe className="w-5 h-5 text-purple-400" />
+                  <div className="w-9 h-9 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                    <Receipt className="w-5 h-5 text-purple-400" />
                   </div>
                   <div>
-                    <p className="text-lg font-bold text-white">
-                      <AnimatedCounter value={120000} duration={2.2} />
-                    </p>
-                    <p className="text-[10px] text-purple-400 font-semibold">+62% Traffic</p>
+                    <p className="text-sm font-bold text-white">47 Sent</p>
+                    <p className="text-[10px] text-neutral-500">Invoices This Month</p>
                   </div>
-                </div>
-              </motion.div>
-
-              {/* Floating Widget 4 - SEO Ranking */}
-              <motion.div
-                initial={{ opacity: 0, x: 50, y: 20 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8 }}
-                className="absolute -bottom-4 -right-4 z-20 rounded-2xl border border-yellow-500/30 shadow-xl bg-[#1a1a22] p-4 animate-float"
-                style={{ animationDelay: '1.5s' }}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-yellow-500/20 flex items-center justify-center">
-                    <Target className="w-5 h-5 text-yellow-400" />
-                  </div>
-                  <div>
-                    <p className="text-lg font-bold text-white">Top 3</p>
-                    <p className="text-[10px] text-yellow-400 font-semibold">SEO Ranking</p>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-            <motion.div {...fadeInUp} className="order-1 lg:order-2">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-sm text-green-300 mb-8 border border-green-500/20">
-                <span className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white font-bold text-sm">6</span>
-                <span className="font-bold tracking-wider">THE RESULT</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Your Revenue <span className="text-green-400">Increases</span></h2>
-              <p className="text-xl text-neutral-400 mb-8 leading-relaxed">
-                With every piece working together—website, leads, calls, CRM, and content—your business becomes a well-oiled machine. No more missed opportunities. No more revenue leaks. Just growth.
-              </p>
-              <div className="space-y-4">
-                {[
-                  "Zero missed calls = more closed deals",
-                  "Faster lead response = higher conversion rates",
-                  "Automated follow-ups = no opportunity left behind",
-                  "Clear visibility = smarter business decisions",
-                  "Less chaos = more time to scale"
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
-                    <span className="text-white/80">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-              <motion.div
-                {...fadeInUp}
-                className="mt-10"
-              >
-                <div className="inline-block px-6 py-4 rounded-2xl bg-green-500/10 border border-green-500/20">
-                  <p className="text-lg font-semibold text-green-300">
-                    This is how businesses stop leaking revenue and start scaling.
-                  </p>
                 </div>
               </motion.div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Summary Section */}
-      <section className="py-24 md:py-32 px-6 md:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div {...fadeInUp}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">This Isn&apos;t a Website Project.</h2>
-            <p className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent mb-12">It&apos;s a Business Upgrade.</p>
-            <p className="text-xl text-neutral-400 leading-relaxed max-w-3xl mx-auto">
-              Most agencies stop at launch. Most software leaves you to figure it out. We deliver the complete system—website, automation, and ongoing support—so your business actually grows.
-            </p>
-          </motion.div>
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 md:py-32 px-6 md:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent">
+      <section id="pricing" aria-label="OneApp pricing — $3,500 setup fee plus monthly plans from $297" className="py-24 md:py-32 px-6 md:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-400 mb-6">
@@ -1616,28 +1958,8 @@ export function OneAppPageContent() {
         </div>
       </section>
 
-      {/* The Problem Section - Chaos Slot Machine */}
-      <section id="problem" className="py-24 md:py-32 px-6 md:px-8 relative">
-        <div className="max-w-6xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">The Chaos</h2>
-            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">Most service businesses struggle with a fragmented system that leaks revenue every day.</p>
-          </motion.div>
-
-          <ChaosSlotMachine />
-
-          <motion.div {...fadeInUp} className="mt-16 text-center">
-            <div className="inline-block px-8 py-4 rounded-2xl bg-red-500/5 border border-red-500/20">
-              <p className="text-lg md:text-xl font-semibold text-red-400">
-                This isn&apos;t a marketing problem. It&apos;s a systems problem.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 relative overflow-hidden">
+      <section id="contact" aria-label="Contact OneApp — get started with your AI business platform" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 to-brand-500/5 pointer-events-none" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
 
@@ -1776,6 +2098,8 @@ export function OneAppPageContent() {
           </motion.div>
         </div>
       </section>
+
+      </main>
 
       {/* Footer */}
       <footer className="py-8 sm:py-12 px-4 sm:px-6 md:px-8 border-t border-white/5 bg-black/50 backdrop-blur-sm">
