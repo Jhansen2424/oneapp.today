@@ -1,0 +1,96 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse"><stop stop-color="#080B12"/><stop offset="1" stop-color="#111523"/></linearGradient>
+    <linearGradient id="ai" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#775CFF"/><stop offset="1" stop-color="#4F8BFF"/></linearGradient>
+    <linearGradient id="aiSoft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#322B68"/><stop offset="1" stop-color="#1C315A"/></linearGradient>
+    <filter id="shadow2" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="1440" height="900" rx="28" fill="url(#bg2)"/>
+  <rect width="82" height="900" fill="#090C14"/><rect x="81" width="1" height="900" fill="white" fill-opacity=".07"/>
+  <rect x="20" y="22" width="42" height="42" rx="13" fill="#6B5CFF"/><path d="M31 43h20M41 33v20" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <g fill="white" fill-opacity=".3"><rect x="26" y="110" width="30" height="30" rx="9"/><rect x="26" y="168" width="30" height="30" rx="9"/><rect x="26" y="284" width="30" height="30" rx="9"/><rect x="26" y="342" width="30" height="30" rx="9"/></g>
+  <rect x="16" y="218" width="50" height="50" rx="14" fill="#6B5CFF" fill-opacity=".18"/><path d="M29 235h24v17H40l-7 6v-6h-4v-17z" stroke="#9D91FF" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="24" y="829" width="34" height="34" rx="17" fill="#2C3342"/><text x="41" y="851" text-anchor="middle" fill="white" font-size="12" font-family="Arial" font-weight="700">DZ</text>
+
+  <!-- inbox -->
+  <rect x="82" width="356" height="900" fill="#0E121C"/><rect x="437" width="1" height="900" fill="white" fill-opacity=".07"/>
+  <text x="111" y="43" fill="white" font-size="23" font-family="Arial" font-weight="700">Messages</text>
+  <rect x="111" y="64" width="297" height="42" rx="13" fill="#171C29"/><circle cx="132" cy="85" r="7" stroke="#737D90" stroke-width="2"/><path d="M138 91l5 5" stroke="#737D90" stroke-width="2" stroke-linecap="round"/><text x="155" y="90" fill="#737D90" font-size="13" font-family="Arial">Search conversations</text>
+  <text x="111" y="143" fill="#70798D" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1.4">COMMERCE INBOX</text>
+  <rect x="111" y="159" width="88" height="30" rx="15" fill="#6B5CFF" fill-opacity=".14"/><text x="155" y="178" text-anchor="middle" fill="#A69BFF" font-size="11" font-family="Arial" font-weight="700">ALL · 17</text>
+  <rect x="207" y="159" width="98" height="30" rx="15" fill="#151A26"/><text x="256" y="178" text-anchor="middle" fill="#929BAD" font-size="11" font-family="Arial" font-weight="700">AI · 12</text>
+  <rect x="313" y="159" width="95" height="30" rx="15" fill="#151A26"/><text x="360" y="178" text-anchor="middle" fill="#929BAD" font-size="11" font-family="Arial" font-weight="700">HUMAN · 2</text>
+
+  <rect x="96" y="211" width="326" height="112" rx="16" fill="#1A2030" stroke="#6B5CFF" stroke-opacity=".55"/>
+  <rect x="108" y="226" width="40" height="40" rx="20" fill="#35405A"/><text x="128" y="251" text-anchor="middle" fill="white" font-size="13" font-family="Arial" font-weight="700">TM</text>
+  <text x="161" y="241" fill="white" font-size="14" font-family="Arial" font-weight="700">Taylor M.</text><text x="394" y="241" text-anchor="end" fill="#727C90" font-size="11" font-family="Arial">now</text>
+  <text x="161" y="261" fill="#7E88A0" font-size="11" font-family="Arial">Storefront chat</text>
+  <text x="108" y="291" fill="#D1D6E2" font-size="12" font-family="Arial">Yes please, I’m 185 lb with gear.</text>
+  <rect x="108" y="299" width="91" height="17" rx="8.5" fill="#71E6A8" fill-opacity=".1"/><circle cx="120" cy="307.5" r="3" fill="#71E6A8"/><text x="130" y="311" fill="#71E6A8" font-size="9" font-family="Arial" font-weight="700">AI HANDLING</text>
+
+  <g>
+    <rect x="96" y="337" width="326" height="90" rx="16" fill="#121722"/>
+    <rect x="108" y="352" width="40" height="40" rx="20" fill="#273345"/><text x="128" y="377" text-anchor="middle" fill="#C9D3E6" font-size="13" font-family="Arial" font-weight="700">JR</text>
+    <text x="161" y="367" fill="#D4D9E5" font-size="13" font-family="Arial" font-weight="700">Jordan R.</text><text x="394" y="367" text-anchor="end" fill="#687185" font-size="10" font-family="Arial">4m</text><text x="161" y="388" fill="#747E92" font-size="11" font-family="Arial">Order status · Email</text><text x="108" y="414" fill="#9DA6B7" font-size="11" font-family="Arial">When will order #10482 ship?</text>
+  </g>
+  <g>
+    <rect x="96" y="439" width="326" height="90" rx="16" fill="#121722"/>
+    <rect x="108" y="454" width="40" height="40" rx="20" fill="#42344B"/><text x="128" y="479" text-anchor="middle" fill="#E4CFEC" font-size="13" font-family="Arial" font-weight="700">AK</text>
+    <text x="161" y="469" fill="#D4D9E5" font-size="13" font-family="Arial" font-weight="700">Alex K.</text><text x="394" y="469" text-anchor="end" fill="#687185" font-size="10" font-family="Arial">8m</text><text x="161" y="490" fill="#747E92" font-size="11" font-family="Arial">Product question · SMS</text><text x="108" y="516" fill="#9DA6B7" font-size="11" font-family="Arial">Is the black version back in stock?</text>
+  </g>
+  <text x="111" y="573" fill="#70798D" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1.4">NEEDS A HUMAN · 2</text>
+  <g><rect x="96" y="591" width="326" height="90" rx="16" fill="#121722"/><rect x="108" y="606" width="40" height="40" rx="20" fill="#49343A"/><text x="128" y="631" text-anchor="middle" fill="#F0CDD4" font-size="13" font-family="Arial" font-weight="700">SC</text><text x="161" y="621" fill="#D4D9E5" font-size="13" font-family="Arial" font-weight="700">Sam C.</text><text x="394" y="621" text-anchor="end" fill="#687185" font-size="10" font-family="Arial">12m</text><text x="161" y="642" fill="#FF8E99" font-size="11" font-family="Arial" font-weight="700">Refund exception</text><text x="108" y="668" fill="#9DA6B7" font-size="11" font-family="Arial">I received a damaged part.</text></g>
+  <text x="111" y="861" fill="#596174" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1.2">UNIFIED: CHAT · SMS · EMAIL · CALLS</text>
+
+  <!-- conversation -->
+  <rect x="438" y="0" width="665" height="900" fill="#0C1019"/>
+  <rect x="438" y="0" width="665" height="86" fill="#101520"/><rect x="438" y="85" width="665" height="1" fill="white" fill-opacity=".07"/>
+  <rect x="467" y="22" width="42" height="42" rx="21" fill="#35405A"/><text x="488" y="48" text-anchor="middle" fill="white" font-size="13" font-family="Arial" font-weight="700">TM</text>
+  <text x="522" y="38" fill="white" font-size="15" font-family="Arial" font-weight="700">Taylor M.</text><text x="522" y="58" fill="#7D879A" font-size="11" font-family="Arial">Storefront chat · Active now</text>
+  <rect x="866" y="23" width="207" height="40" rx="20" fill="#71E6A8" fill-opacity=".1" stroke="#71E6A8" stroke-opacity=".25"/><circle cx="889" cy="43" r="5" fill="#71E6A8"/><text x="903" y="48" fill="#8AF0B7" font-size="11" font-family="Arial" font-weight="700">AI AUTO-RESPONSE ACTIVE</text>
+
+  <rect x="468" y="110" width="605" height="64" rx="16" fill="url(#aiSoft)" stroke="#7066E8" stroke-opacity=".38"/>
+  <rect x="485" y="126" width="32" height="32" rx="10" fill="url(#ai)"/><path d="M495 142h12M501 136v12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <text x="530" y="135" fill="#B9B2FF" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1.1">ONEAPP AI IS RESPONDING</text><text x="530" y="157" fill="#DCE1ED" font-size="12" font-family="Arial">Uses product, fitment, inventory and delivery context. Escalates exceptions.</text>
+  <text x="1038" y="149" text-anchor="end" fill="#82EBB3" font-size="11" font-family="Arial" font-weight="700">96% CONFIDENCE</text>
+
+  <text x="770" y="211" text-anchor="middle" fill="#596174" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1.2">TODAY · 9:14 PM</text>
+  <rect x="479" y="237" width="404" height="83" rx="18" fill="#1B2130"/>
+  <text x="500" y="264" fill="#E5E8EF" font-size="13" font-family="Arial">Will the K-Tech 35mm springs fit my 2022 KTM</text><text x="500" y="285" fill="#E5E8EF" font-size="13" font-family="Arial">300 XC-W? I need them before Friday.</text><text x="500" y="307" fill="#70798D" font-size="10" font-family="Arial">Taylor · 9:14 PM</text>
+
+  <g filter="url(#shadow2)">
+    <rect x="580" y="346" width="493" height="191" rx="20" fill="url(#aiSoft)" stroke="#756AFF" stroke-opacity=".55"/>
+  </g>
+  <rect x="601" y="366" width="28" height="28" rx="9" fill="url(#ai)"/><path d="M610 380h10M615 375v10" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
+  <text x="641" y="378" fill="#BDB7FF" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1">ONEAPP AI · AUTO-REPLIED</text><text x="1049" y="379" text-anchor="end" fill="#817A9D" font-size="10" font-family="Arial">9:14 PM</text>
+  <text x="601" y="421" fill="white" font-size="13" font-family="Arial">Yes—the K-Tech 35mm spring kit is listed for the 2022</text><text x="601" y="443" fill="white" font-size="13" font-family="Arial">KTM 300 XC-W. It is in stock, and priority delivery to</text><text x="601" y="465" fill="white" font-size="13" font-family="Arial">84043 is estimated Thursday.</text>
+  <text x="601" y="496" fill="#DDE2EC" font-size="13" font-family="Arial">Want me to add the correct spring rate to your cart?</text>
+  <rect x="601" y="510" width="105" height="18" rx="9" fill="#70E4A8" fill-opacity=".11"/><text x="653" y="522" text-anchor="middle" fill="#80EAAF" font-size="9" font-family="Arial" font-weight="700">FITMENT VERIFIED</text>
+  <rect x="714" y="510" width="78" height="18" rx="9" fill="#70E4A8" fill-opacity=".11"/><text x="753" y="522" text-anchor="middle" fill="#80EAAF" font-size="9" font-family="Arial" font-weight="700">12 IN STOCK</text>
+  <rect x="800" y="510" width="71" height="18" rx="9" fill="#70E4A8" fill-opacity=".11"/><text x="835" y="522" text-anchor="middle" fill="#80EAAF" font-size="9" font-family="Arial" font-weight="700">ETA THU</text>
+
+  <rect x="479" y="566" width="325" height="69" rx="18" fill="#1B2130"/><text x="500" y="594" fill="#E5E8EF" font-size="13" font-family="Arial">Yes please, I’m 185 lb with gear.</text><text x="500" y="620" fill="#70798D" font-size="10" font-family="Arial">Taylor · 9:15 PM</text>
+  <g filter="url(#shadow2)"><rect x="624" y="661" width="449" height="119" rx="20" fill="url(#aiSoft)" stroke="#756AFF" stroke-opacity=".55"/></g>
+  <text x="646" y="688" fill="#BDB7FF" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1">ONEAPP AI · AUTO-REPLIED</text><text x="1049" y="688" text-anchor="end" fill="#817A9D" font-size="10" font-family="Arial">9:15 PM</text>
+  <text x="646" y="721" fill="white" font-size="13" font-family="Arial">For 185 lb with gear, the recommended rate is 4.6 N/mm.</text><text x="646" y="743" fill="white" font-size="13" font-family="Arial">I’ve prepared the correct kit in your cart.</text>
+  <rect x="646" y="756" width="108" height="16" rx="8" fill="#796DFF" fill-opacity=".22"/><text x="700" y="767" text-anchor="middle" fill="#C2BCFF" font-size="8.5" font-family="Arial" font-weight="700">CART PREPARED</text>
+  <rect x="578" y="813" width="387" height="30" rx="15" fill="#71E6A8" fill-opacity=".08"/><circle cx="601" cy="828" r="4" fill="#71E6A8"/><text x="616" y="832" fill="#82EAB1" font-size="10" font-family="Arial" font-weight="700">HANDLED AUTOMATICALLY · NO HUMAN ACTION NEEDED</text>
+
+  <!-- context -->
+  <rect x="1103" width="337" height="900" fill="#10141F"/><rect x="1103" width="1" height="900" fill="white" fill-opacity=".07"/>
+  <text x="1130" y="43" fill="white" font-size="16" font-family="Arial" font-weight="700">Commerce context</text><rect x="1316" y="24" width="93" height="28" rx="14" fill="#1A2030"/><text x="1362" y="42" text-anchor="middle" fill="#8F98AA" font-size="9" font-family="Arial" font-weight="700">DEMO THREAD</text>
+  <text x="1130" y="103" fill="#70798D" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1.3">CUSTOMER</text>
+  <rect x="1130" y="119" width="280" height="91" rx="16" fill="#171C29"/><text x="1150" y="146" fill="white" font-size="13" font-family="Arial" font-weight="700">Taylor M.</text><text x="1150" y="168" fill="#7F899C" font-size="11" font-family="Arial">Returning customer · Lehi, UT</text><text x="1150" y="191" fill="#7F899C" font-size="11" font-family="Arial">3 orders · $684 lifetime value</text>
+  <text x="1130" y="251" fill="#70798D" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1.3">PRODUCT CONTEXT</text>
+  <rect x="1130" y="267" width="280" height="142" rx="16" fill="#171C29"/><text x="1150" y="294" fill="white" font-size="13" font-family="Arial" font-weight="700">K-Tech 35mm Spring Kit</text><text x="1150" y="318" fill="#7F899C" font-size="11" font-family="Arial">2022 KTM 300 XC-W · verified</text><rect x="1150" y="337" width="102" height="24" rx="12" fill="#70E4A8" fill-opacity=".1"/><text x="1201" y="352" text-anchor="middle" fill="#7BE9AC" font-size="9" font-family="Arial" font-weight="700">12 AVAILABLE</text><text x="1150" y="390" fill="#D7DCE7" font-size="12" font-family="Arial">Recommended rate: <tspan font-weight="700">4.6 N/mm</tspan></text>
+  <text x="1130" y="451" fill="#70798D" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1.3">AI ROUTING</text>
+  <rect x="1130" y="467" width="280" height="201" rx="16" fill="#171C29"/>
+  <text x="1150" y="496" fill="#838DA0" font-size="11" font-family="Arial">Mode</text><rect x="1324" y="479" width="66" height="25" rx="12.5" fill="#70E4A8" fill-opacity=".1"/><text x="1357" y="495" text-anchor="middle" fill="#7BE9AC" font-size="9" font-family="Arial" font-weight="700">AUTO</text>
+  <line x1="1150" y1="518" x2="1390" y2="518" stroke="white" stroke-opacity=".07"/>
+  <circle cx="1157" cy="543" r="4" fill="#70E4A8"/><text x="1171" y="547" fill="#C8CEDA" font-size="11" font-family="Arial">Answer product questions</text>
+  <circle cx="1157" cy="574" r="4" fill="#70E4A8"/><text x="1171" y="578" fill="#C8CEDA" font-size="11" font-family="Arial">Prepare cart actions</text>
+  <circle cx="1157" cy="605" r="4" fill="#FF9B67"/><text x="1171" y="609" fill="#C8CEDA" font-size="11" font-family="Arial">Escalate refunds</text>
+  <circle cx="1157" cy="636" r="4" fill="#FF9B67"/><text x="1171" y="640" fill="#C8CEDA" font-size="11" font-family="Arial">Escalate below 80% confidence</text>
+  <rect x="1130" y="704" width="280" height="101" rx="16" fill="#171C29"/><text x="1150" y="732" fill="#70798D" font-size="10" font-family="Arial" font-weight="700" letter-spacing="1.2">OUTCOME</text><text x="1150" y="762" fill="white" font-size="18" font-family="Arial" font-weight="700">42 seconds</text><text x="1150" y="784" fill="#7F899C" font-size="11" font-family="Arial">to a complete, contextual answer</text>
+  <text x="1410" y="870" text-anchor="end" fill="#596174" font-size="9" font-family="Arial" font-weight="700" letter-spacing="1.1">REPRESENTATIVE CONVERSATION</text>
+</svg>
