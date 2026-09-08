@@ -2,33 +2,34 @@ import '~/styles/globals.css';
 
 import { type Metadata } from 'next';
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { AnalyticsConsent } from '~/components/AnalyticsConsent';
 
-const BASE_URL = 'https://oneapp.today';
+const BASE_URL = 'https://www.oneapp.today';
+
+function validTrackingId(value: string | undefined, pattern: RegExp) {
+  const normalized = value?.trim();
+  return normalized && pattern.test(normalized) ? normalized : undefined;
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'OneApp | AI-Powered Website Builder, SEO, CRM & Billing for Service Businesses',
+    default: 'OneApp | The AI Operating System for Commerce Growth',
     template: '%s | OneApp',
   },
   description:
-    "OneApp is an all-in-one AI platform for service businesses. Build websites with AI, automate SEO & AEO, manage leads with a built-in CRM, and handle invoicing & payments — all from one dashboard. More revenue. Less chaos.",
+    'Connect acquisition, products, marketplaces, customers, and operations. OneApp turns commerce signals into coordinated growth action.',
   keywords: [
-    'AI website builder',
-    'AI-powered business platform',
-    'CRM for service businesses',
-    'automated invoicing software',
-    'SEO automation tool',
-    'AEO AI engine optimization',
-    'all-in-one business software',
-    'website builder for small business',
-    'lead management CRM',
-    'billing and payments platform',
+    'commerce operating system',
+    'AI ecommerce platform',
+    'commerce growth intelligence',
+    'marketplace automation',
+    'ecommerce operations software',
+    'product data automation',
+    'commerce AI agents',
+    'multi-channel commerce platform',
     'OneApp',
-    'AI business automation',
-    'service business software',
-    'web design automation',
-    'subscription billing software',
+    'AI commerce automation',
   ],
   authors: [{ name: 'OneApp', url: BASE_URL }],
   creator: 'OneApp',
@@ -39,9 +40,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'OneApp | AI-Powered Website Builder, SEO, CRM & Billing',
+    title: 'OneApp | The AI Operating System for Commerce Growth',
     description:
-      "All-in-one AI platform for service businesses. Build websites, automate SEO, manage leads, and handle billing — from one dashboard.",
+      'Connect acquisition, products, marketplaces, customers, and operations—then turn commerce intelligence into coordinated action.',
     url: BASE_URL,
     siteName: 'OneApp',
     locale: 'en_US',
@@ -51,15 +52,15 @@ export const metadata: Metadata = {
         url: `${BASE_URL}/oneapp-logo.png`,
         width: 1200,
         height: 630,
-        alt: 'OneApp - AI-Powered All-in-One Business Platform',
+        alt: 'OneApp - The AI Operating System for Commerce Growth',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OneApp | AI-Powered Website Builder, SEO, CRM & Billing',
+    title: 'OneApp | The AI Operating System for Commerce Growth',
     description:
-      "All-in-one AI platform for service businesses. Build websites, automate SEO, manage leads, and handle billing — from one dashboard.",
+      'Connect acquisition, products, marketplaces, customers, and operations with AI-powered commerce intelligence.',
     images: [`${BASE_URL}/oneapp-logo.png`],
   },
   robots: {
@@ -82,7 +83,7 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   other: {
-    'ai-content-declaration': 'This website describes OneApp, an AI-powered all-in-one business platform for service businesses.',
+    'ai-content-declaration': 'This website describes OneApp, an AI operating system for commerce growth.',
   },
 };
 
@@ -111,7 +112,7 @@ const jsonLd = {
         url: `${BASE_URL}/oneapp-logo.png`,
       },
       description:
-        'OneApp is an all-in-one AI-powered platform for service businesses, combining website building, SEO, CRM, and billing into a single dashboard.',
+        'OneApp is an AI operating system connecting acquisition, products, marketplaces, customers, and commerce operations.',
       sameAs: [],
     },
     {
@@ -121,17 +122,17 @@ const jsonLd = {
       name: 'OneApp',
       publisher: { '@id': `${BASE_URL}/#organization` },
       description:
-        'AI-powered all-in-one business platform. Build websites, automate SEO & AEO, manage leads with CRM, and handle invoicing — from one dashboard.',
+        'AI-powered commerce operating system that turns connected signals into coordinated growth action.',
     },
     {
       '@type': 'WebPage',
       '@id': `${BASE_URL}/#webpage`,
       url: BASE_URL,
-      name: 'OneApp | AI-Powered Website Builder, SEO, CRM & Billing for Service Businesses',
+      name: 'OneApp | The AI Operating System for Commerce Growth',
       isPartOf: { '@id': `${BASE_URL}/#website` },
       about: { '@id': `${BASE_URL}/#organization` },
       description:
-        'OneApp is an all-in-one AI platform for service businesses. Build websites with AI, automate SEO & AEO, manage leads with a built-in CRM, and handle invoicing & payments.',
+        'OneApp connects acquisition, product data, marketplaces, customers, and operations for commerce brands.',
     },
     {
       '@type': 'SoftwareApplication',
@@ -140,19 +141,12 @@ const jsonLd = {
       operatingSystem: 'Web',
       url: BASE_URL,
       description:
-        'All-in-one AI-powered business platform combining AI website builder, SEO & AEO automation, CRM with lead management, web design optimization, and invoicing & billing for service businesses.',
-      offers: {
-        '@type': 'Offer',
-        price: '297',
-        priceCurrency: 'USD',
-        description: 'Monthly subscription starting at $297/mo after $3,500 one-time setup',
-      },
+        'AI operating system for commerce growth, combining intelligence, workflows, integrations, and AI execution across the commerce operation.',
       featureList: [
-        'AI Website Builder — describe your site and generate it instantly',
-        'SEO & AEO Automation — rank on Google and get cited by AI search engines',
-        'Conversion-Optimized Web Design — fast, mobile-first, performance-tuned sites',
-        'Built-in CRM — track leads, manage pipeline, automate follow-ups',
-        'Invoicing & Billing — branded invoices, payment collection, subscription management',
+        'Growth intelligence connecting advertising, product economics, margin, and inventory',
+        'Commerce operations workflows for teams and AI agents',
+        'Marketplace and product data coordination',
+        'Customer intelligence across leads, conversations, and retention',
       ],
       provider: { '@id': `${BASE_URL}/#organization` },
     },
@@ -164,23 +158,23 @@ const jsonLd = {
           name: 'What is OneApp?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'OneApp is an all-in-one AI-powered platform for service businesses that combines website building, SEO & AEO optimization, CRM, web design, and invoicing into a single dashboard. It replaces fragmented tools with one unified system.',
+            text: 'OneApp is an AI operating system that connects acquisition, products, marketplaces, customers, and operations so commerce teams can turn intelligence into coordinated action.',
           },
         },
         {
           '@type': 'Question',
-          name: 'How does OneApp help with SEO and AI search?',
+          name: 'How does OneApp help commerce teams grow?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'OneApp automates both traditional SEO (Google rankings) and AI Engine Optimization (AEO) so your business gets found by Google, ChatGPT, Perplexity, and other AI search engines. It handles keyword tracking, content optimization, and structured data automatically.',
+            text: 'OneApp connects commercial signals across advertising, products, inventory, customers, and marketplaces, then helps operators and AI agents prioritize and execute the highest-value work.',
           },
         },
         {
           '@type': 'Question',
-          name: 'How much does OneApp cost?',
+          name: 'Is OneApp software or a managed service?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'OneApp has a one-time setup fee of $3,500 for custom website build and system integration, then monthly plans starting at $297/mo for the Starter tier, $497/mo for Growth, and $797/mo for Scale.',
+            text: 'OneApp is the commerce platform. Brands that also want an embedded strategy and operating team can engage Webaholics for managed growth powered by OneApp.',
           },
         },
         {
@@ -188,7 +182,7 @@ const jsonLd = {
           name: 'Who is OneApp built for?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'OneApp is built for service businesses — agencies, contractors, consultants, and local businesses that need a professional website, lead management, and billing in one place without juggling multiple tools.',
+            text: 'OneApp is built for established commerce brands and operators managing multiple channels, products, marketplaces, customer signals, and operational workflows.',
           },
         },
       ],
@@ -199,6 +193,9 @@ const jsonLd = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const gtmId = validTrackingId(process.env.NEXT_PUBLIC_GTM_ID, /^GTM-[A-Z0-9]+$/);
+  const gaMeasurementId = validTrackingId(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID, /^G-[A-Z0-9]+$/);
+
   return (
     <html
       lang="en"
@@ -210,6 +207,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <AnalyticsConsent gtmId={gtmId} gaMeasurementId={gaMeasurementId} />
       </body>
     </html>
   );
