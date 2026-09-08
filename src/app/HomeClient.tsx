@@ -195,12 +195,12 @@ function MobilePwa() {
                 <div className="relative aspect-[390/844] overflow-hidden rounded-[35px] bg-[#06091a]">
                   <Image src={screen.image} alt={screen.alt} fill unoptimized sizes="(max-width: 1024px) 300px, 360px" className="object-cover object-top" />
                   <Image
-                    src="/screenshots/oneapp-mobile-wordmark.png"
+                    src="/screenshots/oneapp-mobile-app-icon.png"
                     alt=""
-                    width={96}
-                    height={24}
+                    width={34}
+                    height={34}
                     unoptimized
-                    className="pointer-events-none absolute left-[5.64%] top-[3.32%] z-[2] h-auto w-[24.62%]"
+                    className="pointer-events-none absolute left-[5.64%] top-[2.61%] z-[2] h-auto w-[8.72%]"
                   />
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#06091a]/90 to-transparent" />
                 </div>
