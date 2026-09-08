@@ -52,9 +52,10 @@ with the lead.
       view.
 - [ ] Invalid form input stays client-side; a simulated upstream failure shows
       the visitor-safe error and does not fire `generate_lead`.
-- [ ] One real staging submission creates exactly one CRM lead and one opening
-      Messages conversation with attribution and the submission id.
-- [ ] Internal lead notification reaches the intended OneApp recipients.
+- [ ] One staging submission creates exactly one CRM contact and sales context
+      with attribution and the submission id.
+- [ ] A high-confidence lead creates exactly one opening Messages conversation;
+      a pending lead appears in Triage without a conversation, by design.
 - [ ] Links, keyboard focus, labels, color contrast, 404s, and responsive layout
       pass review.
 - [ ] Security headers are present on the preview response.
@@ -66,8 +67,9 @@ with the lead.
 2. Confirm Production uses the production lead form URL and the approved
    tracking identifier.
 3. Merge only the reviewed PR head and verify Vercel deployed that SHA.
-4. Submit one recognizable production test lead. Confirm CRM, Messages,
-   notification delivery, and the analytics `generate_lead` event.
+4. Submit one recognizable production test lead. Confirm CRM/Triage routing,
+   Messages when the lead is auto-added, and the analytics `generate_lead`
+   event.
 5. Verify canonical URLs resolve to `https://www.oneapp.today` and the apex
    redirects once without a loop.
 6. If any critical check fails, immediately redeploy the recorded prior
