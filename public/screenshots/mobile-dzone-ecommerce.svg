@@ -13,7 +13,6 @@
   <rect width="390" height="844" fill="url(#bg)"/>
   <path d="M0 84H390" stroke="#1e2547"/>
   <g transform="translate(22 22)">
-    <path d="M4 17c0-7 6-12 13-12 5 0 9 2 12 7l4 7c2 4 5 5 8 5 4 0 7-3 7-7s-3-7-7-7c-3 0-5 1-7 4l-5-8c4-4 8-6 13-6 9 0 16 7 16 17s-7 17-16 17c-7 0-12-3-16-10l-4-7c-2-4-4-5-7-5-4 0-7 3-7 7s3 7 7 7c3 0 6-2 8-5l5 8c-4 4-8 6-13 6C6 34 0 27 0 17z" fill="white"/>
     <rect x="66" y="4" width="80" height="26" rx="13" fill="#10152f" stroke="#263052"/><text x="83" y="21" class="body" font-size="11">D Zone</text><text x="132" y="21" fill="#64748b">›</text>
     <circle cx="300" cy="17" r="17" fill="#10152f" stroke="#20294a"/><text x="294" y="22" fill="#60a5fa" font-size="18">✦</text>
     <circle cx="343" cy="17" r="17" fill="#10152f" stroke="#20294a"/><text x="337" y="22" fill="#94a3b8" font-size="15">●</text>

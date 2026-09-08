@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p className="text-neutral-400 text-sm sm:text-base mb-12">
-            Last Updated: February 2026
+            Last Updated: September 2026
           </p>
 
           <div className="prose prose-invert prose-neutral max-w-none space-y-10 text-neutral-300 text-sm sm:text-base leading-relaxed">
@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
                 <li>Company details (business name, address, industry)</li>
                 <li>Payment information (processed securely through Stripe)</li>
                 <li>Content you upload or create within the platform</li>
-                <li>Communications with our support team</li>
+                <li>Communications with our support team, including AI-assisted website chat</li>
               </ul>
 
               <h3 className="text-lg font-medium text-white mb-2">Information Collected Automatically:</h3>
@@ -70,7 +70,7 @@ export default function PrivacyPolicy() {
                 <li>Provide, maintain, and improve our services</li>
                 <li>Process transactions and send billing communications</li>
                 <li>Send service-related notifications and updates</li>
-                <li>Respond to your inquiries and provide customer support</li>
+                <li>Respond to your inquiries, provide AI-assisted support, and connect you with a team member</li>
                 <li>Analyze usage patterns to enhance user experience</li>
                 <li>Detect and prevent fraud or security threats</li>
                 <li>Comply with legal obligations</li>

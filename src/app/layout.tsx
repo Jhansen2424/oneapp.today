@@ -3,6 +3,7 @@ import '~/styles/globals.css';
 import { type Metadata } from 'next';
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import { AnalyticsConsent } from '~/components/AnalyticsConsent';
+import { OneAppLiveChat } from '~/components/OneAppLiveChat';
 
 const BASE_URL = 'https://www.oneapp.today';
 
@@ -207,6 +208,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <OneAppLiveChat />
         <AnalyticsConsent gtmId={gtmId} gaMeasurementId={gaMeasurementId} />
       </body>
     </html>
