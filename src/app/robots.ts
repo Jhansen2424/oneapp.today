@@ -37,6 +37,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://oneapp.today/sitemap.xml',
+    sitemap: 'https://www.oneapp.today/sitemap.xml',
   };
 }

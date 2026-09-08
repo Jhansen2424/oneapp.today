@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://oneapp.today';
+  const baseUrl = 'https://www.oneapp.today';
 
   return [
     {

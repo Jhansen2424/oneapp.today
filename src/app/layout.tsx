@@ -2,8 +2,14 @@ import '~/styles/globals.css';
 
 import { type Metadata } from 'next';
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { AnalyticsConsent } from '~/components/AnalyticsConsent';
 
-const BASE_URL = 'https://oneapp.today';
+const BASE_URL = 'https://www.oneapp.today';
+
+function validTrackingId(value: string | undefined, pattern: RegExp) {
+  const normalized = value?.trim();
+  return normalized && pattern.test(normalized) ? normalized : undefined;
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -187,6 +193,9 @@ const jsonLd = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const gtmId = validTrackingId(process.env.NEXT_PUBLIC_GTM_ID, /^GTM-[A-Z0-9]+$/);
+  const gaMeasurementId = validTrackingId(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID, /^G-[A-Z0-9]+$/);
+
   return (
     <html
       lang="en"
@@ -198,6 +207,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <AnalyticsConsent gtmId={gtmId} gaMeasurementId={gaMeasurementId} />
       </body>
     </html>
   );
