@@ -145,13 +145,13 @@ function PlatformModules() {
 
 const mobileScreens = [
   {
-    image: "/screenshots/mobile-dzone-ecommerce.png",
+    image: "/screenshots/mobile-dzone-ecommerce.svg",
     alt: "OneApp mobile home for D Zone showing ecommerce revenue, profit, orders, average order value and refunds",
     label: "D Zone",
     meta: "Ecommerce command · representative data",
   },
   {
-    image: "/screenshots/mobile-webaholics-service.png",
+    image: "/screenshots/mobile-webaholics-service.svg",
     alt: "OneApp mobile home for Webaholics showing service revenue, sessions, leads, search position and advertising spend",
     label: "Webaholics",
     meta: "Service growth · representative data",
@@ -193,7 +193,15 @@ function MobilePwa() {
               <div className="relative rounded-[42px] border border-white/20 bg-[#080812] p-[7px] shadow-[0_34px_90px_rgba(0,0,0,.65)]">
                 <div className="absolute left-1/2 top-[15px] z-10 h-[22px] w-[82px] -translate-x-1/2 rounded-full border border-white/[0.04] bg-black" />
                 <div className="relative aspect-[390/844] overflow-hidden rounded-[35px] bg-[#06091a]">
-                  <Image src={screen.image} alt={screen.alt} fill sizes="(max-width: 1024px) 300px, 360px" className="object-cover object-top" />
+                  <Image src={screen.image} alt={screen.alt} fill unoptimized sizes="(max-width: 1024px) 300px, 360px" className="object-cover object-top" />
+                  <Image
+                    src="/screenshots/oneapp-mobile-wordmark.png"
+                    alt=""
+                    width={96}
+                    height={24}
+                    unoptimized
+                    className="pointer-events-none absolute left-[5.64%] top-[3.32%] z-[2] h-auto w-[24.62%]"
+                  />
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#06091a]/90 to-transparent" />
                 </div>
               </div>
