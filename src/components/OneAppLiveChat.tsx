@@ -34,6 +34,10 @@ export function OneAppLiveChat() {
       data-api-key={apiKey}
       data-accent="#8b26ca"
       data-title="Chat with OneApp"
+      data-toolset="agency"
+      data-placeholder="Ask about OneApp..."
+      data-teaser="Hi! How can we help?"
+      data-greeting="Hi! I can answer questions about OneApp and help you connect with our team. What would you like to know?"
       data-offset-bottom="20"
       data-offset-bottom-mobile="88"
     />
