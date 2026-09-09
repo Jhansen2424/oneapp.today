@@ -41,28 +41,32 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'OneApp | The AI Operating System for Commerce Growth',
+    title: 'OneApp | AI Growth Engine for Commerce',
     description:
-      'Connect acquisition, products, marketplaces, customers, and operations—then turn commerce intelligence into coordinated action.',
+      'Connect acquisition, products, marketplaces, customers and operations with AI built for commerce growth.',
     url: BASE_URL,
     siteName: 'OneApp',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/oneapp-logo.png`,
+        url: `${BASE_URL}/social/oneapp-ai-growth-engine-v2.png`,
         width: 1200,
         height: 630,
-        alt: 'OneApp - The AI Operating System for Commerce Growth',
+        type: 'image/png',
+        alt: 'OneApp. AI Growth Engine for Commerce.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OneApp | The AI Operating System for Commerce Growth',
+    title: 'OneApp | AI Growth Engine for Commerce',
     description:
-      'Connect acquisition, products, marketplaces, customers, and operations with AI-powered commerce intelligence.',
-    images: [`${BASE_URL}/oneapp-logo.png`],
+      'Connect acquisition, products, marketplaces, customers and operations with AI built for commerce growth.',
+    images: [{
+      url: `${BASE_URL}/social/oneapp-ai-growth-engine-v2.png`,
+      alt: 'OneApp. AI Growth Engine for Commerce.',
+    }],
   },
   robots: {
     index: true,
